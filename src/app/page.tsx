@@ -1,103 +1,103 @@
-import Image from "next/image";
+"use client"
+
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck, faStar, faThumbsUp, faClock, faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen">
+      {/* Section Hero avec background */}
+      <section 
+        className="relative min-h-screen"
+      >
+        {/* Background avec opacité réduite */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/back.png')",
+            backgroundAttachment: 'fixed',
+            opacity: 0.05
+          }}
+        ></div>
+        
+        {/* Overlay sombre pour améliorer la lisibilité */}
+        <div className="absolute inset-0"></div>
+        
+        {/* Contenu principal */}
+        <div className="relative z-10 container mx-auto px-4 py-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
+            
+            {/* Colonne gauche - Texte */}
+            <div className="text-black space-y-8">
+              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+                <span style={{color: '#f4b34f'}}>Fachbetrieb</span><br />
+                <span>für Kanaltechnik</span>
+              </h1>
+              
+              <p className="text-md lg:text-lg leading-relaxed">
+                Beauftragen Sie die Rohrmann Service – Ihren mehrfach geprüften Abwasserbetrieb. 
+                Als Ihr verlässlicher Partner stehen wir Ihnen für saubere und effiziente Rohr- und 
+                Kanalreinigungen zur Verfügung. Zusätzlich liegt unsere Expertise in der Sanierung 
+                und Instandsetzung von Kanal- und Abwassersystemen nach modernsten Verfahren sowie 
+                dem Einbau von Rückstausicherungen.
+              </p>
+              
+              {/* Liste des avantages */}
+              <div className="space-y-4">
+                <div className="flex items-center space-x-2">
+                  <FontAwesomeIcon 
+                    icon={faCheck} 
+                    className="yellow text-lg" 
+                    style={{
+                      filter: 'drop-shadow(0 0 1px currentColor)',
+                      fontWeight: 1000
+                    }}
+                  />
+                  <span className="text-md">Kostenlose Beratung vor Ort</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <FontAwesomeIcon icon={faStar} className="yellow text-lg" />
+                  <span className="text-md">Modernste Technik & Ausrüstung</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <FontAwesomeIcon icon={faThumbsUp} className="yellow text-lg" />
+                  <span className="text-md ">Fachbetrieb mit über 15 Jahren Erfahrung</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <FontAwesomeIcon icon={faClock} className="yellow text-lg" />
+                  <span className="text-md ">Schnelle Terminvergabe</span>
+                </div>
+              </div>
+              
+              {/* Bouton d'action */}
+              <div className="pt-8">
+                <button 
+                  className="px-8 py-4 text-white font-bold text-lg rounded-lg shadow-lg hover:opacity-90 transition-opacity flex items-center gap-3"
+                  style={{backgroundColor: '#f4b34f'}}
+                >
+                  <FontAwesomeIcon icon={faCalendar} className="text-lg" />
+                  Termin vereinbaren
+                </button>
+              </div>
+            </div>
+            
+            {/* Colonne droite - Image */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                <Image 
+                  src="/image1.jpg" 
+                  alt="Rohrmann Service Team" 
+                  width={1500} 
+                  height={1200}
+                  className="rounded-lg shadow-2xl object-cover"
+                />
+              </div>
+            </div>
+            
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
     </div>
   );
 }
