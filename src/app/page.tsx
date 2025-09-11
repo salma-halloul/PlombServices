@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faStar, faThumbsUp, faClock, faCalendar, faPhone, faChevronLeft, faChevronRight, faFileInvoice } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faStar, faThumbsUp, faClock, faCalendar, faPhone, faChevronLeft, faChevronRight, faFileInvoice, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import Lottie from 'lottie-react';
 
 export default function Home() {
@@ -12,6 +12,14 @@ export default function Home() {
   
   // Référence pour le carousel des avis
   const reviewsCarouselRef = useRef<HTMLDivElement>(null);
+
+  // État pour gérer l'ouverture/fermeture des questions FAQ
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  // Fonction pour basculer l'ouverture des FAQ
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
 
   useEffect(() => {
     // Charger toutes les animations Lottie
@@ -994,7 +1002,7 @@ export default function Home() {
           <div className="flex justify-center items-center">
             {/* Icon/Visual */}
             <div className="w-full max-w-2xl">
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-12 rounded-md flex items-center justify-center gap-6">
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-md flex items-center justify-center gap-6">
                 <FontAwesomeIcon 
                   icon={faFileInvoice} 
                   className="text-5xl"
@@ -1008,6 +1016,267 @@ export default function Home() {
           </div>
 
 
+        </div>
+      </section>
+
+      {/* Section FAQ */}
+      <section className="bg-gray-100 p-10">
+        <div className="container mx-auto px-4">
+          
+          {/* Titre principal */}
+          <div className="mb-10">
+            <h2 className="text-2xl lg:text-3xl font-bold leading-tight mb-2" style={{color: '#1b5565'}}>
+              FAQ – Häufig gestellte Fragen
+            </h2>
+            <p className="text-lg text-gray-600">
+              Klicken Sie auf eine Frage, um die Antwort zu sehen
+            </p>
+          </div>
+
+          {/* Questions FAQ - Accordéon */}
+          <div className="mx-auto space-y-4">
+
+            {/* Question 1 */}
+            <div className="bg-white">
+              <button
+                onClick={() => toggleFAQ(1)}
+                className="w-full p-3 text-left flex justify-between items-center faq-button rounded-lg"
+              >
+                <div>
+                  <h3 className="text-md lg:text-lg font-bold text-black">
+                    Wie lange dauert eine Rohrreinigung?
+                  </h3>
+                </div>
+                <FontAwesomeIcon 
+                  icon={openFAQ === 1 ? faChevronUp : faChevronDown} 
+                  className="text-xl" 
+                  style={{color: '#1b5565'}} 
+                />
+              </button>
+              {openFAQ === 1 && (
+                <div className="px-3 pb-6 animate-fadeIn">
+                  <div className="border-t pt-4">
+                    <p className="text-lg font-bold text-black mb-4">
+                      In den meisten Fällen 1-3 Stunden.
+                    </p>
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      Die Zeit, die benötigt wird, um eine Rohrreinigung durchzuführen, hängt maßgeblich von der Schwere und Tiefe der Verstopfung ab. Eine leichte Verstopfung lässt sich häufig schon innerhalb einer Stunde vollständig beheben. Bei komplexeren oder tiefer liegenden Verstopfungen des Abwassersystems kann der Aufwand entsprechend größer sein, und Sie sollten in solchen Fällen mit einer Bearbeitungszeit von bis zu drei Stunden rechnen.
+                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                      Zusätzlich möchten wir Ihnen versichern, dass wir stets bemüht sind, Ihren Notfall so schnell wie möglich zu adressieren. Unser Team ist dafür ausgerüstet, am selben Tag Ihres Anrufs zu intervenieren, und wir bieten unseren Service 24 Stunden am Tag, sieben Tage die Woche an, um sicherzustellen, dass wir immer dann zur Stelle sind, wenn Sie uns brauchen. Ein weiterer Aspekt, der uns am Herzen liegt, ist die Sauberkeit. Unsere Techniker sind nicht nur dafür ausgebildet, effizient und gründlich zu arbeiten, sondern sie achten auch besonders darauf, Ihre Räumlichkeiten nach Abschluss der Arbeiten in einem tadellosen Zustand zu hinterlassen.
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Question 2 */}
+            <div className="bg-white ">
+              <button
+                onClick={() => toggleFAQ(2)}
+                className="w-full p-3 text-left flex justify-between items-center faq-button rounded-lg"
+              >
+                <div>
+                  <h3 className="text-lg lg:text-lg font-bold text-black">
+                    Wie schnell sind Sie bei mir?
+                  </h3>
+                </div>
+                <FontAwesomeIcon 
+                  icon={openFAQ === 2 ? faChevronUp : faChevronDown} 
+                  className="text-xl" 
+                  style={{color: '#1b5565'}} 
+                />
+              </button>
+              {openFAQ === 2 && (
+                <div className="px-3 pb-6 animate-fadeIn">
+                  <div className="border-t pt-4">
+                    <p className="text-lg font-bold text-black mb-4">
+                      Meistens in 45-90 Minuten
+                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                      Unser Notfallservice ist rund um die Uhr verfügbar, um Ihnen in dringenden Fällen sofortige Hilfe zu leisten. Sobald Sie uns kontaktieren, machen wir uns umgehend auf den Weg zu Ihnen, um schnellstmöglich Unterstützung zu bieten. Für weniger dringende Aufträge bieten wir die Möglichkeit, einen passenden Termin zu vereinbaren, der Ihren Anforderungen und Ihrem Zeitplan entspricht. Dies gilt für sämtliche Dienstleistungen, einschließlich Kanalreinigung. Unsere Priorität ist es, flexibel auf Ihre Bedürfnisse zu reagieren und effiziente sowie qualitativ hochwertige Lösungen anzubieten. Zusätzlich steht Ihnen unser Kundendienst 24 Stunden am Tag telefonisch zur Verfügung, um Ihnen kostenlose Beratung zu bieten. Wir beantworten gerne alle Ihre Fragen und beraten Sie umfassend zu unseren Dienstleistungen und Ihrem spezifischen Anliegen.
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Question 3 */}
+            <div className="bg-white ">
+              <button
+                onClick={() => toggleFAQ(3)}
+                className="w-full p-3 text-left flex justify-between items-center faq-button rounded-lg"
+              >
+                <div>
+                  <h3 className="text-lg lg:text-lg font-bold text-black">
+                    Was kostet die Rohrreinigung?
+                  </h3>
+                </div>
+                <FontAwesomeIcon 
+                  icon={openFAQ === 3 ? faChevronUp : faChevronDown} 
+                  className="text-xl" 
+                  style={{color: '#1b5565'}} 
+                />
+              </button>
+              {openFAQ === 3 && (
+                <div className="px-3 pb-6 animate-fadeIn">
+                  <div className="border-t pt-4">
+                    <p className="text-lg font-bold text-black mb-4">
+                      85% der Rohrreinigungen kosten weniger als 250€
+                    </p>
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      Die Kosten für eine professionelle Rohrreinigung sind von verschiedenen Faktoren abhängig, darunter die Lage der Verstopfung und die Ursache des Problems. Aus diesem Grund können die Kosten variieren und sind stark von den spezifischen Umständen abhängig. Vorsicht ist bei vermeintlich günstigen Pauschalangeboten geboten, da diese oft nicht alle Eventualitäten berücksichtigen und somit zu unerwarteten Mehrkosten führen können.
+                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                      Bei uns erhalten Sie eine transparente und vertrauensvolle Beratung: Wir informieren Sie kostenlos über die notwendigen Schritte und klären Sie umfassend darüber auf, was genau getan werden muss. Unsere Preisgestaltung ist klar und nachvollziehbar – Sie erfahren im Voraus, welche Kosten auf Sie zukommen, sodass Sie sich keine Sorgen um unerwartete Ausgaben machen müssen. Wir beginnen erst mit der Arbeit, nachdem Sie alle Informationen erhalten haben und Ihr Einverständnis geben. So stellen wir sicher, dass Sie vollständig informiert sind und sich bei uns gut aufgehoben fühlen.
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Question 4 */}
+            <div className="bg-white ">
+              <button
+                onClick={() => toggleFAQ(4)}
+                className="w-full p-3 text-left flex justify-between items-center faq-button rounded-lg"
+              >
+                <div>
+                  <h3 className="text-lg lg:text-lg font-bold text-black">
+                    Wie entsteht eine Rohrverstopfung?
+                  </h3>
+                </div>
+                <FontAwesomeIcon 
+                  icon={openFAQ === 4 ? faChevronUp : faChevronDown} 
+                  className="text-xl" 
+                  style={{color: '#1b5565'}} 
+                />
+              </button>
+              {openFAQ === 4 && (
+                <div className="px-3 pb-6 animate-fadeIn">
+                  <div className="border-t pt-4">
+                    <p className="text-lg font-bold text-black mb-4">
+                      Häufigsten Gründe: Kalk, Fett und Seifenreste
+                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                      Im Laufe der Zeit ist es völlig normal, dass sich Ablagerungen aus Kalk, Fett und Seifenreste in den Rohren bilden. Besondere Umstände sind Einflüsse durch Wurzeleinwuchs sowie bauliche Mängel wie etwa zu wenig Leitungsgefälle oder nachträgliche Setzungen. All diese Faktoren reduzieren die Fließgeschwindigkeit des Wassers und beeinträchtigen die natürliche Reinigungswirkung. Erste Anzeichen für eine sich anbahnende Rohrverstopfung sind, wenn der Abfluss gluckert oder schlechter als gewohnt abläuft. Zögern Sie daher nicht, uns bereits bei den ersten Anzeichen zu kontaktieren.
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Question 5 */}
+            <div className="bg-white ">
+              <button
+                onClick={() => toggleFAQ(5)}
+                className="w-full p-3 text-left flex justify-between items-center faq-button rounded-lg"
+              >
+                <div>
+                  <h3 className="text-lg lg:text-lg font-bold text-black">
+                    Welche Methoden zur Rohrreinigung kommen zum Einsatz?
+                  </h3>
+                </div>
+                <FontAwesomeIcon 
+                  icon={openFAQ === 5 ? faChevronUp : faChevronDown} 
+                  className="text-xl" 
+                  style={{color: '#1b5565'}} 
+                />
+              </button>
+              {openFAQ === 5 && (
+                <div className="px-3 pb-6 animate-fadeIn">
+                  <div className="border-t pt-4">
+                    <p className="text-lg font-bold text-black mb-4">
+                      Viele unterschiedliche technische Methoden & kostenlose Problemanalyse
+                    </p>
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      Zur Behebung von Verstopfungen in Rohren und Abflüssen stehen verschiedene Methoden zur Verfügung, die je nach Schweregrad der Verstopfung eingesetzt werden. Zunächst wird das Problem kostenlos analysiert, um die geeignetste Methode auszuwählen.
+                    </p>
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      Bei leichten Verstopfungen ist die Verwendung einer Rohrreinigungsspirale eine gängige Methode. Diese Spirale, auch bekannt als Rohrreinigungswelle, wird manuell oder maschinell in das verstopfte Rohr eingeführt. Durch Drehbewegungen greift die Spitze der Spirale die Verstopfung, löst sie auf oder zieht sie heraus. Der Vorteil dieser Methode liegt in ihrer Effizienz und Kosteneffektivität für kleinere Blockaden.
+                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                      Für stärkere Verstopfungen, bei denen eine Spirale nicht ausreicht, kommt häufig die Hochdruckspülung zum Einsatz. Dabei wird Wasser unter hohem Druck durch die Rohre gepumpt, um Ablagerungen und Verstopfungen zu lösen und wegzuspülen. Diese Methode ist besonders effektiv, da sie nicht nur die unmittelbare Blockade beseitigt, sondern auch die Rohrwände von angesammelten Fetten, Ölen und anderen Ablagerungen reinigt. Ein weiterer Vorteil der Hochdruckspülung ist, dass sie umweltfreundlich ist, da sie ohne den Einsatz von Chemikalien auskommt und die Rohre gründlich reinigt, was das Risiko zukünftiger Verstopfungen minimiert.
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Question 6 */}
+            <div className="bg-white ">
+              <button
+                onClick={() => toggleFAQ(6)}
+                className="w-full p-3 text-left flex justify-between items-center faq-button rounded-lg"
+              >
+                <div>
+                  <h3 className="text-lg lg:text-lg font-bold text-black">
+                    Können Abwasserrohre repariert werden ohne aufzugraben?
+                  </h3>
+                </div>
+                <FontAwesomeIcon 
+                  icon={openFAQ === 6 ? faChevronUp : faChevronDown} 
+                  className="text-xl" 
+                  style={{color: '#1b5565'}} 
+                />
+              </button>
+              {openFAQ === 6 && (
+                <div className="px-3 pb-6 animate-fadeIn">
+                  <div className="border-t pt-4">
+                    <p className="text-lg font-bold text-black mb-4">
+                      Ja, dank hochmodernen technischen Methoden
+                    </p>
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      Es gibt inzwischen eine Vielzahl technischer Möglichkeiten um Rohre und Kanäle von innen, also grabenlos, zu reparieren oder zu renovieren. M. Kummetat GmbH & Co. KG ist spezialisiert auf alle gängigen Reparatur- und Sanierungsverfahren, die im Bereich der Grundstücksentwässerung möglich sind. Wir verwenden ausschließlich DIBT-zugelassene Sanierungsmaterialien für die Rohr-in-Rohr-Sanierung. Wir beraten Sie kostenfrei und individuell nach Ihrem Bedürfnis. Wie freuen uns, wenn Sie uns kontaktieren.
+                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                      Bei diesen Methoden wird ein flexibler Schlauch, der mit einem speziellen Harz getränkt ist, in ein beschädigtes Rohr eingeführt. Anschließend wird das Harz durch Wärme oder UV-Licht ausgehärtet, wodurch der Schlauch fest mit der Innenwand des Rohrs verschmilzt und so eine neue, dichte Innenschicht bildet. Dieser Sanierungsvorgang hat den Vorteil, dass die Baustelle während der Arbeiten begehbar bleibt und keine umfangreichen Erdarbeiten erforderlich sind. Darüber hinaus ist das Verfahren kostengünstig, da es schneller durchgeführt werden kann und weniger Arbeitsaufwand sowie Material benötigt als traditionelle Sanierungsmethoden.
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Question 7 */}
+            <div className="bg-white ">
+              <button
+                onClick={() => toggleFAQ(7)}
+                className="w-full p-3 text-left flex justify-between items-center faq-button rounded-lg"
+              >
+                <div>
+                  <h3 className="text-lg lg:text-lg font-bold text-black">
+                    Sind Hausmittel oder Chemikalien sinnvoll?
+                  </h3>
+                </div>
+                <FontAwesomeIcon 
+                  icon={openFAQ === 7 ? faChevronUp : faChevronDown} 
+                  className="text-xl" 
+                  style={{color: '#1b5565'}} 
+                />
+              </button>
+              {openFAQ === 7 && (
+                <div className="px-3 pb-6 animate-fadeIn">
+                  <div className="border-t pt-4">
+                    <p className="text-lg font-bold text-black mb-4">
+                      Meistens helfen diese Methoden nur vorübergehend. Langfristige Lösungen bieten professionelle Reinigungen.
+                    </p>
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      Hausmittel wie Essig oder Natron können bei leichten Verstopfungen kurzzeitig helfen, bieten jedoch keine langfristige Lösung. Diese Mittel sind oft nicht stark genug, um hartnäckige Blockaden zu beseitigen und können in einigen Fällen sogar zu einer Verschlimmerung der Verstopfung führen, indem sie den Schmutz verdichten oder tiefer in das Rohrsystem drücken.
+                    </p>
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      Chemikalien zur Rohrreinigung sind zwar effektiver bei der Auflösung von Verstopfungen, können jedoch erhebliche Nachteile haben. Sie sind oft sehr aggressiv und können die Rohrinnenwände beschädigen, was langfristig zu Lecks oder Brüchen führen kann. Darüber hinaus sind viele dieser Chemikalien umweltschädlich, da sie beim Ausspülen in Gewässer gelangen und dort die Wasserqualität und das ökologische Gleichgewicht negativ beeinflussen können.
+                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                      Aus diesen Gründen empfiehlt es sich, bei Verstopfungen auf unseren professionellen Rohrreinigungsdienst zurückzugreifen. Wir nutzen spezielle Werkzeuge und Techniken, die effektiv und sicher sind, sowohl für Ihre Rohre als auch für die Umwelt. Für eine nachhaltige und sichere Pflege Ihrer Abwassersysteme ist unsere professionelle Reinigung die beste Wahl.
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+          </div>
+
+          
         </div>
       </section>
     </div>

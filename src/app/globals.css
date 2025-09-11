@@ -102,3 +102,30 @@ body {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;             /* Chrome, Safari et Opera */
 }
+
+/* Animation fluide pour le FAQ accordion */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.7s ease-out forwards;
+}
+
+/* Transition pour les boutons FAQ */
+.faq-button {
+  transition: all 0.7s ease;
+}
+
+.faq-button:hover {
+  background-color: rgba(243, 244, 246, 0.5);
+}
