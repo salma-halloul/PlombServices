@@ -3,13 +3,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faStar, faThumbsUp, faClock, faCalendar, faPhone, faChevronLeft, faChevronRight, faFileInvoice, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faStar, faThumbsUp, faClock, faCalendar, faPhone, faChevronLeft, faChevronRight, faFileInvoice, faChevronDown, faChevronUp, faHome, faCog, faUsers, faShield, faTruck, faBroom } from '@fortawesome/free-solid-svg-icons';
 import Lottie from 'lottie-react';
 
 export default function Home() {
   // Chargement des animations Lottie pour tous les services
   const [serviceAnimations, setServiceAnimations] = useState<Record<string, any>>({});
-  
+
   // Référence pour le carousel des avis
   const reviewsCarouselRef = useRef<HTMLDivElement>(null);
 
@@ -25,7 +25,7 @@ export default function Home() {
     // Charger toutes les animations Lottie
     const loadAnimations = async () => {
       const animations: Record<string, any> = {};
-      
+
       for (let i = 0; i <= 6; i++) {
         try {
           const response = await fetch(`/0${i}_Icon.json`);
@@ -35,7 +35,7 @@ export default function Home() {
           console.error(`Erreur lors du chargement de l'animation ${i}:`, error);
         }
       }
-      
+
       setServiceAnimations(animations);
     };
 
@@ -818,10 +818,10 @@ export default function Home() {
       {/* Section Avis Google avec fond gris clair */}
       <section className="bg-gray-100 p-10">
         <div className="container mx-auto px-4">
-          
+
           {/* Titre principal */}
           <div className="text-center mb-10">
-            <h2 className="text-2xl lg:text-3xl font-bold leading-tight mb-2" style={{color: '#1b5565'}}>
+            <h2 className="text-2xl lg:text-3xl font-bold leading-tight mb-2" style={{ color: '#1b5565' }}>
               Was unsere Kunden sagen
             </h2>
             <p className="text-lg text-gray-600">
@@ -850,12 +850,12 @@ export default function Home() {
             </button>
 
             {/* Carousel sans barre de défilement visible */}
-            <div 
+            <div
               ref={reviewsCarouselRef}
               className="overflow-x-scroll overflow-y-hidden hide-scrollbar"
             >
               <div className="flex space-x-6 pb-4" style={{ minWidth: 'max-content' }}>
-                
+
                 {/* Avis 1 */}
                 <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-72 sm:w-80 lg:w-96">
                   <div className="flex items-center mb-4">
@@ -991,7 +991,7 @@ export default function Home() {
       <section className="bg-white p-10">
         <div className="container mx-auto px-4">
           <div className="mb-12">
-            <h2 className="text-2xl lg:text-3xl font-bold leading-tight mb-4" style={{color: '#1b5565'}}>
+            <h2 className="text-2xl lg:text-3xl font-bold leading-tight mb-4" style={{ color: '#1b5565' }}>
               Zahlungsarten
             </h2>
             <p className="text-lg text-gray-600 mx-auto">
@@ -1003,12 +1003,12 @@ export default function Home() {
             {/* Icon/Visual */}
             <div className="w-full max-w-2xl">
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-md flex items-center justify-center gap-6">
-                <FontAwesomeIcon 
-                  icon={faFileInvoice} 
+                <FontAwesomeIcon
+                  icon={faFileInvoice}
                   className="text-5xl"
-                  style={{color: '#1b5565'}}
+                  style={{ color: '#1b5565' }}
                 />
-                <p className="text-lg font-semibold text-center" style={{color: '#1b5565'}}>
+                <p className="text-lg font-semibold text-center" style={{ color: '#1b5565' }}>
                   Rechnung erhalten, erst dann bezahlen
                 </p>
               </div>
@@ -1020,12 +1020,12 @@ export default function Home() {
       </section>
 
       {/* Section FAQ */}
-      <section className="bg-gray-100 p-10">
+      <section className="bg-gray-100 p-10 py-20">
         <div className="container mx-auto px-4">
-          
+
           {/* Titre principal */}
           <div className="mb-10">
-            <h2 className="text-2xl lg:text-3xl font-bold leading-tight mb-2" style={{color: '#1b5565'}}>
+            <h2 className="text-2xl lg:text-3xl font-bold leading-tight mb-2" style={{ color: '#1b5565' }}>
               FAQ – Häufig gestellte Fragen
             </h2>
             <p className="text-lg text-gray-600">
@@ -1047,10 +1047,10 @@ export default function Home() {
                     Wie lange dauert eine Rohrreinigung?
                   </h3>
                 </div>
-                <FontAwesomeIcon 
-                  icon={openFAQ === 1 ? faChevronUp : faChevronDown} 
-                  className="text-xl" 
-                  style={{color: '#1b5565'}} 
+                <FontAwesomeIcon
+                  icon={openFAQ === 1 ? faChevronUp : faChevronDown}
+                  className="text-xl"
+                  style={{ color: '#1b5565' }}
                 />
               </button>
               {openFAQ === 1 && (
@@ -1081,10 +1081,10 @@ export default function Home() {
                     Wie schnell sind Sie bei mir?
                   </h3>
                 </div>
-                <FontAwesomeIcon 
-                  icon={openFAQ === 2 ? faChevronUp : faChevronDown} 
-                  className="text-xl" 
-                  style={{color: '#1b5565'}} 
+                <FontAwesomeIcon
+                  icon={openFAQ === 2 ? faChevronUp : faChevronDown}
+                  className="text-xl"
+                  style={{ color: '#1b5565' }}
                 />
               </button>
               {openFAQ === 2 && (
@@ -1112,10 +1112,10 @@ export default function Home() {
                     Was kostet die Rohrreinigung?
                   </h3>
                 </div>
-                <FontAwesomeIcon 
-                  icon={openFAQ === 3 ? faChevronUp : faChevronDown} 
-                  className="text-xl" 
-                  style={{color: '#1b5565'}} 
+                <FontAwesomeIcon
+                  icon={openFAQ === 3 ? faChevronUp : faChevronDown}
+                  className="text-xl"
+                  style={{ color: '#1b5565' }}
                 />
               </button>
               {openFAQ === 3 && (
@@ -1146,10 +1146,10 @@ export default function Home() {
                     Wie entsteht eine Rohrverstopfung?
                   </h3>
                 </div>
-                <FontAwesomeIcon 
-                  icon={openFAQ === 4 ? faChevronUp : faChevronDown} 
-                  className="text-xl" 
-                  style={{color: '#1b5565'}} 
+                <FontAwesomeIcon
+                  icon={openFAQ === 4 ? faChevronUp : faChevronDown}
+                  className="text-xl"
+                  style={{ color: '#1b5565' }}
                 />
               </button>
               {openFAQ === 4 && (
@@ -1177,10 +1177,10 @@ export default function Home() {
                     Welche Methoden zur Rohrreinigung kommen zum Einsatz?
                   </h3>
                 </div>
-                <FontAwesomeIcon 
-                  icon={openFAQ === 5 ? faChevronUp : faChevronDown} 
-                  className="text-xl" 
-                  style={{color: '#1b5565'}} 
+                <FontAwesomeIcon
+                  icon={openFAQ === 5 ? faChevronUp : faChevronDown}
+                  className="text-xl"
+                  style={{ color: '#1b5565' }}
                 />
               </button>
               {openFAQ === 5 && (
@@ -1214,10 +1214,10 @@ export default function Home() {
                     Können Abwasserrohre repariert werden ohne aufzugraben?
                   </h3>
                 </div>
-                <FontAwesomeIcon 
-                  icon={openFAQ === 6 ? faChevronUp : faChevronDown} 
-                  className="text-xl" 
-                  style={{color: '#1b5565'}} 
+                <FontAwesomeIcon
+                  icon={openFAQ === 6 ? faChevronUp : faChevronDown}
+                  className="text-xl"
+                  style={{ color: '#1b5565' }}
                 />
               </button>
               {openFAQ === 6 && (
@@ -1248,10 +1248,10 @@ export default function Home() {
                     Sind Hausmittel oder Chemikalien sinnvoll?
                   </h3>
                 </div>
-                <FontAwesomeIcon 
-                  icon={openFAQ === 7 ? faChevronUp : faChevronDown} 
-                  className="text-xl" 
-                  style={{color: '#1b5565'}} 
+                <FontAwesomeIcon
+                  icon={openFAQ === 7 ? faChevronUp : faChevronDown}
+                  className="text-xl"
+                  style={{ color: '#1b5565' }}
                 />
               </button>
               {openFAQ === 7 && (
@@ -1273,12 +1273,110 @@ export default function Home() {
                 </div>
               )}
             </div>
-
           </div>
-
-          
         </div>
       </section>
+
+      {/* Section Weitere Vorteile avec arrière-plan logo */}
+      <section className="relative py-10 p-10" style={{ backgroundColor: '#f8f9fa' }}>
+        {/* Image de fond avec le logo */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{
+            backgroundImage: "url('/RohritterLogo.jpg')",
+          }}
+        ></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+
+          {/* Titre principal */}
+          <div className="text-center mb-10">
+            <h2 className="text-3xl lg:text-4xl font-bold leading-tight mb-2" style={{ color: '#1b5565' }}>
+              Weitere Vorteile
+            </h2>
+            <p className="text-lg text-gray-600">
+              Warum Sie sich für Rohrritter entscheiden sollten
+            </p>
+          </div>
+
+          {/* Grille des avantages */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+
+            {/* Avantage 1 */}
+            <div className="flex items-center space-x-4">
+              <FontAwesomeIcon
+                icon={faHome}
+                className="text-3xl"
+                style={{ color: '#f4b34f' }}
+              />
+              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
+                Kostenlose Beratung vor Ort
+              </span>
+            </div>
+
+            {/* Avantage 2 */}
+            <div className="flex items-center space-x-4">
+              <FontAwesomeIcon
+                icon={faCog}
+                className="text-3xl"
+                style={{ color: '#f4b34f' }}
+              />
+              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
+                Modernste technische Ausstattung
+              </span>
+            </div>
+
+            {/* Avantage 3 */}
+            <div className="flex items-center space-x-4">
+              <FontAwesomeIcon
+                icon={faUsers}
+                className="text-3xl"
+                style={{ color: '#f4b34f' }}
+              />
+              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
+                Langjährige Mitarbeiter
+              </span>
+            </div>
+
+            {/* Avantage 4 */}
+            <div className="flex items-center space-x-4">
+              <FontAwesomeIcon
+                icon={faShield}
+                className="text-3xl"
+                style={{ color: '#f4b34f' }}
+              />
+              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
+                Schutz vor weiteren Rohrschäden
+              </span>
+            </div>
+
+            {/* Avantage 5 */}
+            <div className="flex items-center space-x-4">
+              <FontAwesomeIcon
+                icon={faTruck}
+                className="text-3xl"
+                style={{ color: '#f4b34f' }}
+              />
+              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
+                Fuhrpark auf dem neuesten Stand
+              </span>
+            </div>
+
+            {/* Avantage 6 */}
+            <div className="flex items-center space-x-4">
+              <FontAwesomeIcon
+                icon={faBroom}
+                className="text-3xl"
+                style={{ color: '#f4b34f' }}
+              />
+              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
+                Sehr saubere Arbeitsweise
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
