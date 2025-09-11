@@ -174,7 +174,7 @@ export default function Home() {
               langfristig sauberen Kanälen
             </h2>
             <p className="text-md lg:text-xl text-black font-semibold">
-              Kanalreinigung mit MeisterRohr in Berlin und Umgebung
+              Kanalreinigung mit Rohrritter in Minden und Umgebung
             </p>
           </div>
 
@@ -235,6 +235,95 @@ export default function Home() {
               </p>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Section Minden avec image 3 */}
+      <section className="bg-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Colonne gauche - Texte */}
+            <div className="text-black space-y-2">
+              <h2 className="text-sm lg:text-md font-extrabold leading-tight">
+                <span style={{color: '#1b5565'}}>Minden</span> – Hier sind wir Zuhause
+              </h2>
+              
+              <h3 className="text-lg lg:text-2xl font-bold" style={{color: '#d63231'}}>
+                Fachbetrieb mit jahrelanger Erfahrung
+              </h3>
+              
+              <p className="lg:text-lg text-md leading-relaxed">
+                Rohrritter legt großen Wert auf hervorragende Qualität. Um diese zu erreichen, 
+                setzen wir auf drei entscheidende Faktoren: unser Fachwissen, unsere Erfahrung 
+                und unsere modernste Technik. Unsere Mitarbeiter sind fachlich versiert und 
+                routiniert im Umgang mit den neuesten Technologien, um Ihnen die bestmögliche 
+                Qualität zu bieten.
+              </p>
+              
+              <p className="text-xl font-bold" style={{color: '#1b5565'}}>
+                Überzeugen Sie sich selbst von der Qualität bei Rohrritter!
+              </p>
+              
+              {/* Liste des qualités */}
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="flex items-center space-x-3">
+                  <FontAwesomeIcon icon={faCheck} className="text-lg" style={{color: '#f4b34f'}} />
+                  <span className="font-medium">Innovatives Werkzeug</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <FontAwesomeIcon icon={faCheck} className="text-lg" style={{color: '#f4b34f'}} />
+                  <span className="font-medium">Erfahrene Techniker</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <FontAwesomeIcon icon={faCheck} className="text-lg" style={{color: '#f4b34f'}} />
+                  <span className="font-medium">24/7 Notfalldienst</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <FontAwesomeIcon icon={faCheck} className="text-lg" style={{color: '#f4b34f'}} />
+                  <span className="font-medium">Saubere Arbeitsweise</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <FontAwesomeIcon icon={faCheck} className="text-lg" style={{color: '#f4b34f'}} />
+                  <span className="font-medium">Vorbildlicher Kundenservice</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <FontAwesomeIcon icon={faCheck} className="text-lg" style={{color: '#f4b34f'}} />
+                  <span className="font-medium">100% umweltfreundlich</span>
+                </div>
+              </div>
+              
+              {/* Bouton rendez-vous */}
+              <div className="pt-6">
+                <button 
+                  className="px-8 py-4 text-white font-bold text-lg rounded-lg shadow-lg hover:opacity-90 transition-opacity flex items-center gap-3"
+                  style={{backgroundColor: '#d63231'}}
+                >
+                  <FontAwesomeIcon icon={faCalendar} className="text-lg" />
+                  Termin vereinbaren
+                </button>
+              </div>
+            </div>
+            
+            {/* Colonne droite - Image 3 */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                <Image 
+                  src="/image3.jpeg" 
+                  alt="Rohrritter Minden Team" 
+                  width={600} 
+                  height={700}
+                  className="rounded-lg shadow-2xl object-cover"
+                />
+                {/* Effet de bordure */}
+                <div 
+                  className="absolute -inset-4 rounded-lg opacity-20 -z-10"
+                  style={{backgroundColor: '#f4b34f'}}
+                ></div>
+              </div>
+            </div>
+            
           </div>
         </div>
       </section>
