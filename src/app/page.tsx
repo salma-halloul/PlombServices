@@ -162,6 +162,82 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Section Processus avec fond jaune */}
+      <section className="py-16" style={{backgroundColor: '#f4b34f'}}>
+        <div className="container mx-auto px-4">
+          
+          {/* Titre principal */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-black leading-tight mb-2">
+              In wenigen Schritten zu<br />
+              langfristig sauberen Kanälen
+            </h2>
+            <p className="text-md lg:text-xl text-black font-semibold">
+              Kanalreinigung mit MeisterRohr in Berlin und Umgebung
+            </p>
+          </div>
+
+          {/* Processus en 3 étapes */}
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+            
+            {/* Étape 1 */}
+            <div className="bg-white rounded-lg p-8 shadow-lg relative">
+              <div 
+                className="absolute -top-6 left-8 w-12 h-12 rounded-full flex items-center justify-center text-white text-2xl font-bold"
+                style={{backgroundColor: '#d63231'}}
+              >
+                1
+              </div>
+              <h3 className="text-2xl font-bold text-black mt-6 mb-4">
+                Kanalinspektion
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                Eine Kamera wird in das Rohrsystem eingeführt, um den Zustand zu überprüfen 
+                und Verstopfungen oder Schäden zu lokalisieren. Anhand der Ergebnisse wird 
+                die geeignete Reinigungsmethode ausgewählt.
+              </p>
+            </div>
+
+            {/* Étape 2 */}
+            <div className="bg-white rounded-lg p-8 shadow-lg relative">
+              <div 
+                className="absolute -top-6 left-8 w-12 h-12 rounded-full flex items-center justify-center text-white text-2xl font-bold"
+                style={{backgroundColor: '#d63231'}}
+              >
+                2
+              </div>
+              <h3 className="text-2xl font-bold text-black mt-6 mb-4">
+                Kanalreinigung
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                Mechanische Werkzeuge, wie eine elektrische Reinigungsspirale oder 
+                Hochdruckwasserstrahlen werden eingesetzt, um Ablagerungen und Verstopfungen 
+                zu entfernen. Diese Methoden reinigen das Kanalsystem gründlich.
+              </p>
+            </div>
+
+            {/* Étape 3 */}
+            <div className="bg-white rounded-lg p-8 shadow-lg relative">
+              <div 
+                className="absolute -top-6 left-8 w-12 h-12 rounded-full flex items-center justify-center text-white text-2xl font-bold"
+                style={{backgroundColor: '#d63231'}}
+              >
+                3
+              </div>
+              <h3 className="text-2xl font-bold text-black mt-6 mb-4">
+                Nachkontrolle
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                Der Kanal wird erneut inspiziert, um den Erfolg der Maßnahmen zu überprüfen 
+                und sicherzustellen, dass die Kanäle langfristig funktionsfähig bleiben. 
+                Ergebnisse werden dokumentiert und zukünftige Maßnahmen ermittelt.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
