@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faStar, faThumbsUp, faClock, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faStar, faThumbsUp, faClock, faCalendar, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
   return (
@@ -92,6 +92,70 @@ export default function Home() {
                   height={1200}
                   className="rounded-lg shadow-2xl object-cover"
                 />
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      {/* Section Information avec fond blanc */}
+      <section className="bg-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Colonne droite - Texte - Ordre 2 sur mobile, 1 sur lg */}
+            <div className="text-black space-y-6 order-1 lg:order-2">
+              <h2 className="text-lg lg:text-2xl font-bold leading-tight">
+                <span style={{color: '#d63231'}}>Wichtig:</span> Schnelle Reinigung<br />
+                verhindert <span style={{color: '#f4b34f'}}>85%</span> der Rohrbrüche!
+              </h2>
+              
+              <p className="lg:text-lg text-md leading-relaxed">
+                Hinter vielen Problemen mit Abflüssen im Haus steckt eine tiefer sitzende Ursache. 
+                Oft sind verstopfte Abflüsse Warnsignale! Mit unserer professionellen Kamerauntersuchung 
+                ermitteln wir genau Verschmutzungen und Leckagen in Ihrem Abwassersystem und können 
+                wichtige Maßnahmen zum Erhalt Ihres Immobilienwertes ableiten.
+              </p>
+              
+              <div className="bg-gray-50 p-4 rounded-lg border-l-4" style={{borderLeftColor: '#f4b34f'}}>
+                <p className="lg:text-lg text-md font-semibold mb-3">
+                  Rufen Sie jetzt an und lassen Sie sich von uns kostenlos beraten.
+                </p>
+                <p className="lg:text-md text-sm mb-3">
+                  Bei <span style={{color: '#f4b34f'}} className="font-bold">80 %</span> aller Anrufe 
+                  können wir bereits am Telefon weiterhelfen!
+                </p>
+                
+                <div className="space-y-1">
+                  <p className="text-sm font-medium text-gray-600">Jetzt telefonisch erreichbar</p>
+                  <a 
+                    href="tel:015630814701"
+                    className="text-3xl font-bold underline flex items-center gap-3 hover:opacity-80 transition-opacity"
+                    style={{color: '#1b5565'}}
+                  >
+                    <FontAwesomeIcon icon={faPhone} className="lg:text-2xl text-lg" />
+                    0156 3081 4701
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            {/* Colonne gauche - Image 2 - Ordre 1 sur mobile, 2 sur lg */}
+            <div className="flex justify-center lg:justify-start order-2 lg:order-1">
+              <div className="relative">
+                <Image 
+                  src="/image2.jpeg" 
+                  alt="Rohrmann Service Ausrüstung" 
+                  width={1500} 
+                  height={1200}
+                  className="rounded-lg shadow-2xl object-cover"
+                />
+                {/* Effet de bordure */}
+                <div 
+                  className="absolute -inset-4 rounded-lg opacity-20 -z-10"
+                  style={{backgroundColor: '#1b5565'}}
+                ></div>
               </div>
             </div>
             
