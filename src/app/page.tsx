@@ -1,20 +1,23 @@
 "use client"
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faStar, faThumbsUp, faClock, faCalendar, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faStar, faThumbsUp, faClock, faCalendar, faPhone, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import Lottie from 'lottie-react';
 
 export default function Home() {
   // Chargement des animations Lottie pour tous les services
   const [serviceAnimations, setServiceAnimations] = useState<Record<string, any>>({});
+  
+  // Référence pour le carousel des avis
+  const reviewsCarouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Charger toutes les animations Lottie
     const loadAnimations = async () => {
       const animations: Record<string, any> = {};
-
+      
       for (let i = 0; i <= 6; i++) {
         try {
           const response = await fetch(`/0${i}_Icon.json`);
@@ -24,14 +27,35 @@ export default function Home() {
           console.error(`Erreur lors du chargement de l'animation ${i}:`, error);
         }
       }
-
+      
       setServiceAnimations(animations);
     };
 
     loadAnimations();
   }, []);
 
-  // Composant pour afficher une animation Lottie avec fallback SVG
+  // Fonctions pour le défilement du carousel
+  const scrollLeft = () => {
+    if (reviewsCarouselRef.current) {
+      // Calcul dynamique basé sur la largeur de l'écran
+      const scrollDistance = window.innerWidth >= 1024 ? 400 : window.innerWidth >= 640 ? 340 : 300;
+      reviewsCarouselRef.current.scrollBy({
+        left: -scrollDistance,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (reviewsCarouselRef.current) {
+      // Calcul dynamique basé sur la largeur de l'écran
+      const scrollDistance = window.innerWidth >= 1024 ? 400 : window.innerWidth >= 640 ? 340 : 300;
+      reviewsCarouselRef.current.scrollBy({
+        left: scrollDistance,
+        behavior: 'smooth'
+      });
+    }
+  };  // Composant pour afficher une animation Lottie avec fallback SVG
   const ServiceIcon = ({ serviceKey, fallbackSvg }: {
     serviceKey: string;
     fallbackSvg: React.ReactNode;
@@ -669,7 +693,7 @@ export default function Home() {
             <h2 className="text-md lg:text-lg font-bold leading-tight mb-1" style={{ color: '#d63231' }}>
               Studien zeigen
             </h2>
-            <p className="text-2xl lg:text-3xl text-gray-800 font-bold">
+            <p className="text-2xl lg:text-3xl font-bold" style={{ color: '#1b5565' }}>
               Je älter das Haus, desto wahrscheinlicher ein Rohrschaden.
             </p>
           </div>
@@ -779,6 +803,178 @@ export default function Home() {
 
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Section Avis Google avec fond gris clair */}
+      <section className="bg-gray-100 p-10">
+        <div className="container mx-auto px-4">
+          
+          {/* Titre principal */}
+          <div className="text-center mb-10">
+            <h2 className="text-2xl lg:text-3xl font-bold leading-tight mb-2" style={{color: '#1b5565'}}>
+              Was unsere Kunden sagen
+            </h2>
+            <p className="text-lg text-gray-600">
+              Echte Bewertungen von zufriedenen Kunden
+            </p>
+          </div>
+
+          {/* Grille des avis - Carousel horizontal avec boutons */}
+          <div className="relative">
+            {/* Bouton gauche */}
+            <button
+              onClick={scrollLeft}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow"
+              style={{ marginLeft: '-50px' }}
+            >
+              <FontAwesomeIcon icon={faChevronLeft} className="text-lg" style={{ color: '#1b5565' }} />
+            </button>
+
+            {/* Bouton droite */}
+            <button
+              onClick={scrollRight}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow"
+              style={{ marginRight: '-50px' }}
+            >
+              <FontAwesomeIcon icon={faChevronRight} className="text-lg" style={{ color: '#1b5565' }} />
+            </button>
+
+            {/* Carousel sans barre de défilement visible */}
+            <div 
+              ref={reviewsCarouselRef}
+              className="overflow-x-scroll overflow-y-hidden hide-scrollbar"
+            >
+              <div className="flex space-x-6 pb-4" style={{ minWidth: 'max-content' }}>
+                
+                {/* Avis 1 */}
+                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-72 sm:w-80 lg:w-96">
+                  <div className="flex items-center mb-4">
+                    <div className="flex text-yellow-400">
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                    </div>
+                    <span className="ml-2 text-sm text-gray-500">5/5</span>
+                  </div>
+                  <p className="text-gray-700 mb-4 italic">
+                    "Sehr professioneller und schneller Service. Das Team war pünktlich, freundlich und hat das Problem sofort gelöst. Absolute Empfehlung!"
+                  </p>
+                  <div className="text-sm">
+                    <p className="font-semibold text-gray-800">Maria Schmidt</p>
+                    <p className="text-gray-500">Berlin Mitte</p>
+                  </div>
+                </div>
+
+                {/* Avis 2 */}
+                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-72 sm:w-80 lg:w-96">
+                  <div className="flex items-center mb-4">
+                    <div className="flex text-yellow-400">
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                    </div>
+                    <span className="ml-2 text-sm text-gray-500">5/5</span>
+                  </div>
+                  <p className="text-gray-700 mb-4 italic">
+                    "Faire Preise und excellente Arbeit. Die Rohrreinigung war sehr gründlich und das Ergebnis perfekt. Danke für den tollen Service!"
+                  </p>
+                  <div className="text-sm">
+                    <p className="font-semibold text-gray-800">Thomas Müller</p>
+                    <p className="text-gray-500">Berlin Charlottenburg</p>
+                  </div>
+                </div>
+
+                {/* Avis 3 */}
+                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-72 sm:w-80 lg:w-96">
+                  <div className="flex items-center mb-4">
+                    <div className="flex text-yellow-400">
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                    </div>
+                    <span className="ml-2 text-sm text-gray-500">5/5</span>
+                  </div>
+                  <p className="text-gray-700 mb-4 italic">
+                    "Notdienst am Sonntag - innerhalb einer Stunde da! Sehr kompetent und sauber gearbeitet. Absolut zuverlässig!"
+                  </p>
+                  <div className="text-sm">
+                    <p className="font-semibold text-gray-800">Sarah Weber</p>
+                    <p className="text-gray-500">Berlin Kreuzberg</p>
+                  </div>
+                </div>
+
+                {/* Avis 4 */}
+                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-72 sm:w-80 lg:w-96">
+                  <div className="flex items-center mb-4">
+                    <div className="flex text-yellow-400">
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                    </div>
+                    <span className="ml-2 text-sm text-gray-500">5/5</span>
+                  </div>
+                  <p className="text-gray-700 mb-4 italic">
+                    "Kamera-Untersuchung war sehr aufschlussreich. Transparente Beratung und keine versteckten Kosten. Sehr zu empfehlen!"
+                  </p>
+                  <div className="text-sm">
+                    <p className="font-semibold text-gray-800">Michael Fischer</p>
+                    <p className="text-gray-500">Berlin Prenzlauer Berg</p>
+                  </div>
+                </div>
+
+                {/* Avis 5 */}
+                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-72 sm:w-80 lg:w-96">
+                  <div className="flex items-center mb-4">
+                    <div className="flex text-yellow-400">
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                    </div>
+                    <span className="ml-2 text-sm text-gray-500">5/5</span>
+                  </div>
+                  <p className="text-gray-700 mb-4 italic">
+                    "Jahrelange Probleme mit dem Abfluss endlich gelöst! Professionelle Sanierung und seitdem keine Probleme mehr. Top!"
+                  </p>
+                  <div className="text-sm">
+                    <p className="font-semibold text-gray-800">Anna Hoffmann</p>
+                    <p className="text-gray-500">Berlin Schöneberg</p>
+                  </div>
+                </div>
+
+                {/* Avis 6 */}
+                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-72 sm:w-80 lg:w-96">
+                  <div className="flex items-center mb-4">
+                    <div className="flex text-yellow-400">
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                      <FontAwesomeIcon icon={faStar} className="text-lg" />
+                    </div>
+                    <span className="ml-2 text-sm text-gray-500">5/5</span>
+                  </div>
+                  <p className="text-gray-700 mb-4 italic">
+                    "Sehr freundliches Team und erstklassige Arbeit. Pünktlich, zuverlässig und faire Preise. Immer wieder gerne!"
+                  </p>
+                  <div className="text-sm">
+                    <p className="font-semibold text-gray-800">Peter Wagner</p>
+                    <p className="text-gray-500">Berlin Tempelhof</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

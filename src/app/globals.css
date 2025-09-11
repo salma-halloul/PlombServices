@@ -92,3 +92,13 @@ body {
 .main-content {
   margin-top: 100px; /* Espace pour la barre info + navbar */
 }
+
+/* Masquer les barres de défilement pour le carousel */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE et Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari et Opera */
+}
