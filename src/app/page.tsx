@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faStar, faThumbsUp, faClock, faCalendar, faPhone, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faStar, faThumbsUp, faClock, faCalendar, faPhone, faChevronLeft, faChevronRight, faFileInvoice } from '@fortawesome/free-solid-svg-icons';
 import Lottie from 'lottie-react';
 
 export default function Home() {
@@ -976,6 +976,38 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Section Zahlungsarten */}
+      <section className="bg-white p-10">
+        <div className="container mx-auto px-4">
+          <div className="mb-12">
+            <h2 className="text-2xl lg:text-3xl font-bold leading-tight mb-4" style={{color: '#1b5565'}}>
+              Zahlungsarten
+            </h2>
+            <p className="text-lg text-gray-600 mx-auto">
+              Bei uns haben Sie die Möglichkeit, bequem per Rechnung zu zahlen. Keine Vorauszahlung erforderlich – Sie bezahlen erst nach erfolgreicher Leistungserbringung.
+            </p>
+          </div>
+
+          <div className="flex justify-center items-center">
+            {/* Icon/Visual */}
+            <div className="w-full max-w-2xl">
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-12 rounded-md flex items-center justify-center gap-6">
+                <FontAwesomeIcon 
+                  icon={faFileInvoice} 
+                  className="text-5xl"
+                  style={{color: '#1b5565'}}
+                />
+                <p className="text-lg font-semibold text-center" style={{color: '#1b5565'}}>
+                  Rechnung erhalten, erst dann bezahlen
+                </p>
+              </div>
+            </div>
+          </div>
+
+
         </div>
       </section>
     </div>
