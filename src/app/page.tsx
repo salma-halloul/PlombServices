@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faStar, faThumbsUp, faClock, faCalendar, faPhone, faChevronLeft, faChevronRight, faFileInvoice, faChevronDown, faChevronUp, faHome, faCog, faUsers, faShield, faTruck, faBroom } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faStar, faThumbsUp, faClock, faCalendar, faPhone, faChevronLeft, faChevronRight, faFileInvoice, faChevronDown, faChevronUp, faHome, faCog, faUsers, faShield, faTruck, faBroom, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import Lottie from 'lottie-react';
 
 export default function Home() {
@@ -1372,6 +1372,113 @@ export default function Home() {
               <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
                 Sehr saubere Arbeitsweise
               </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section Contact */}
+      <section className="bg-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+
+            {/* Colonne gauche - Image */}
+            <div className="flex justify-center lg:justify-start">
+              <div className="relative">
+                <Image
+                  src="/contact.webp"
+                  alt="Scheithauer Rohrreinigung Kontakt"
+                  width={600}
+                  height={700}
+                  className="rounded-lg shadow-2xl object-cover"
+                />
+                {/* Effet de bordure */}
+                <div
+                  className="absolute -inset-4 rounded-lg opacity-20 -z-10"
+                  style={{ backgroundColor: '#f4b34f' }}
+                ></div>
+              </div>
+            </div>
+
+            {/* Colonne droite - Formulaire de contact */}
+            <div className="space-y-2">
+              {/* Titre et contact info */}
+              <div>
+                <h2 className="text-xl lg:text-2xl font-bold mb-2" style={{ color: '#1b5565' }}>
+                  Kontaktieren Sie uns
+                </h2>
+                <p className="lg:text-lg text-md mb-2">
+                  Marc Scheithauer – Ihr kompetenter Ansprechpartner
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 mb-6">
+                  <p className="text-md font-bold" style={{ color: '#d63231' }}>
+                    <FontAwesomeIcon icon={faPhone} className="mr-2" style={{ color: '#d63231' }} />
+                    07473 2039 788
+                  </p>
+                  <p className="text-md font-bold" style={{ color: '#d63231' }}>
+                    <FontAwesomeIcon icon={faEnvelope} className="mr-2" style={{ color: '#d63231' }} />
+                    info@scheithauer-rohrreinigung.de
+                  </p>
+                </div>
+
+                <p className="text-sm font-semibold mb-2">
+                  Jetzt telefonisch erreichbar
+                </p>
+              </div>
+
+              {/* Formulaire de contact */}
+              <form className="space-y-2">
+                <div>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Name"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                  />
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="E-Mail"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                    />
+                  </div>
+
+                  <div>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      placeholder="Rückrufnummer"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    placeholder="Nachricht"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full px-6 py-3 text-white font-bold text-md rounded-md shadow-lg hover:opacity-90 transition-opacity"
+                  style={{ backgroundColor: '#d63231' }}
+                >
+                  Nachricht senden
+                </button>
+              </form>
             </div>
           </div>
         </div>
