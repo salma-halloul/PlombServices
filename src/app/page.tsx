@@ -8,7 +8,7 @@ import Lottie from 'lottie-react';
 
 export default function Home() {
   // Chargement des animations Lottie pour tous les services
-  const [serviceAnimations, setServiceAnimations] = useState<Record<string, any>>({});
+  const [serviceAnimations, setServiceAnimations] = useState<Record<string, object>>({});
 
   // Référence pour le carousel des avis
   const reviewsCarouselRef = useRef<HTMLDivElement>(null);
@@ -24,7 +24,7 @@ export default function Home() {
   useEffect(() => {
     // Charger toutes les animations Lottie
     const loadAnimations = async () => {
-      const animations: Record<string, any> = {};
+      const animations: Record<string, object> = {};
 
       for (let i = 0; i <= 6; i++) {
         try {
@@ -869,7 +869,7 @@ export default function Home() {
                     <span className="ml-2 text-sm text-gray-500">5/5</span>
                   </div>
                   <p className="text-gray-700 mb-4 italic">
-                    "Sehr professioneller und schneller Service. Das Team war pünktlich, freundlich und hat das Problem sofort gelöst. Absolute Empfehlung!"
+                    &quot;Sehr professioneller und schneller Service. Das Team war pünktlich, freundlich und hat das Problem sofort gelöst. Absolute Empfehlung!&quot;
                   </p>
                   <div className="text-sm">
                     <p className="font-semibold text-gray-800">Maria Schmidt</p>
@@ -890,7 +890,7 @@ export default function Home() {
                     <span className="ml-2 text-sm text-gray-500">5/5</span>
                   </div>
                   <p className="text-gray-700 mb-4 italic">
-                    "Faire Preise und excellente Arbeit. Die Rohrreinigung war sehr gründlich und das Ergebnis perfekt. Danke für den tollen Service!"
+                    &quot;Faire Preise und excellente Arbeit. Die Rohrreinigung war sehr gründlich und das Ergebnis perfekt. Danke für den tollen Service!&quot;
                   </p>
                   <div className="text-sm">
                     <p className="font-semibold text-gray-800">Thomas Müller</p>
@@ -911,7 +911,7 @@ export default function Home() {
                     <span className="ml-2 text-sm text-gray-500">5/5</span>
                   </div>
                   <p className="text-gray-700 mb-4 italic">
-                    "Notdienst am Sonntag - innerhalb einer Stunde da! Sehr kompetent und sauber gearbeitet. Absolut zuverlässig!"
+                    &quot;Notdienst am Sonntag - innerhalb einer Stunde da! Sehr kompetent und sauber gearbeitet. Absolut zuverlässig!&quot;
                   </p>
                   <div className="text-sm">
                     <p className="font-semibold text-gray-800">Sarah Weber</p>
@@ -932,7 +932,7 @@ export default function Home() {
                     <span className="ml-2 text-sm text-gray-500">5/5</span>
                   </div>
                   <p className="text-gray-700 mb-4 italic">
-                    "Kamera-Untersuchung war sehr aufschlussreich. Transparente Beratung und keine versteckten Kosten. Sehr zu empfehlen!"
+                    &quot;Kamera-Untersuchung war sehr aufschlussreich. Transparente Beratung und keine versteckten Kosten. Sehr zu empfehlen!&quot;
                   </p>
                   <div className="text-sm">
                     <p className="font-semibold text-gray-800">Michael Fischer</p>
@@ -953,7 +953,7 @@ export default function Home() {
                     <span className="ml-2 text-sm text-gray-500">5/5</span>
                   </div>
                   <p className="text-gray-700 mb-4 italic">
-                    "Jahrelange Probleme mit dem Abfluss endlich gelöst! Professionelle Sanierung und seitdem keine Probleme mehr. Top!"
+                    &quot;Jahrelange Probleme mit dem Abfluss endlich gelöst! Professionelle Sanierung und seitdem keine Probleme mehr. Top!&quot;
                   </p>
                   <div className="text-sm">
                     <p className="font-semibold text-gray-800">Anna Hoffmann</p>
@@ -974,7 +974,7 @@ export default function Home() {
                     <span className="ml-2 text-sm text-gray-500">5/5</span>
                   </div>
                   <p className="text-gray-700 mb-4 italic">
-                    "Sehr freundliches Team und erstklassige Arbeit. Pünktlich, zuverlässig und faire Preise. Immer wieder gerne!"
+                    &quot;Sehr freundliches Team und erstklassige Arbeit. Pünktlich, zuverlässig und faire Preise. Immer wieder gerne!&quot;
                   </p>
                   <div className="text-sm">
                     <p className="font-semibold text-gray-800">Peter Wagner</p>
@@ -1014,8 +1014,106 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
+            {/* Section Weitere Vorteile avec arrière-plan logo */}
+      <section className="relative py-10 p-10" style={{ backgroundColor: '#f8f9fa' }}>
+        {/* Image de fond avec le logo */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{
+            backgroundImage: "url('/RohritterLogo.jpg')",
+          }}
+        ></div>
 
+        <div className="container mx-auto px-4 relative z-10">
+
+          {/* Titre principal */}
+          <div className="text-center mb-10">
+            <h2 className="text-3xl lg:text-4xl font-bold leading-tight mb-2" style={{ color: '#1b5565' }}>
+              Weitere Vorteile
+            </h2>
+            <p className="text-lg text-gray-600">
+              Warum Sie sich für Rohrritter entscheiden sollten
+            </p>
+          </div>
+
+          {/* Grille des avantages */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+
+            {/* Avantage 1 */}
+            <div className="flex items-center space-x-4">
+              <FontAwesomeIcon
+                icon={faHome}
+                className="text-3xl"
+                style={{ color: '#f4b34f' }}
+              />
+              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
+                Kostenlose Beratung vor Ort
+              </span>
+            </div>
+
+            {/* Avantage 2 */}
+            <div className="flex items-center space-x-4">
+              <FontAwesomeIcon
+                icon={faCog}
+                className="text-3xl"
+                style={{ color: '#f4b34f' }}
+              />
+              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
+                Modernste technische Ausstattung
+              </span>
+            </div>
+
+            {/* Avantage 3 */}
+            <div className="flex items-center space-x-4">
+              <FontAwesomeIcon
+                icon={faUsers}
+                className="text-3xl"
+                style={{ color: '#f4b34f' }}
+              />
+              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
+                Langjährige Mitarbeiter
+              </span>
+            </div>
+
+            {/* Avantage 4 */}
+            <div className="flex items-center space-x-4">
+              <FontAwesomeIcon
+                icon={faShield}
+                className="text-3xl"
+                style={{ color: '#f4b34f' }}
+              />
+              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
+                Schutz vor weiteren Rohrschäden
+              </span>
+            </div>
+
+            {/* Avantage 5 */}
+            <div className="flex items-center space-x-4">
+              <FontAwesomeIcon
+                icon={faTruck}
+                className="text-3xl"
+                style={{ color: '#f4b34f' }}
+              />
+              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
+                Fuhrpark auf dem neuesten Stand
+              </span>
+            </div>
+
+            {/* Avantage 6 */}
+            <div className="flex items-center space-x-4">
+              <FontAwesomeIcon
+                icon={faBroom}
+                className="text-3xl"
+                style={{ color: '#f4b34f' }}
+              />
+              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
+                Sehr saubere Arbeitsweise
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1277,105 +1375,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section Weitere Vorteile avec arrière-plan logo */}
-      <section className="relative py-10 p-10" style={{ backgroundColor: '#f8f9fa' }}>
-        {/* Image de fond avec le logo */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
-          style={{
-            backgroundImage: "url('/RohritterLogo.jpg')",
-          }}
-        ></div>
-
-        <div className="container mx-auto px-4 relative z-10">
-
-          {/* Titre principal */}
-          <div className="text-center mb-10">
-            <h2 className="text-3xl lg:text-4xl font-bold leading-tight mb-2" style={{ color: '#1b5565' }}>
-              Weitere Vorteile
-            </h2>
-            <p className="text-lg text-gray-600">
-              Warum Sie sich für Rohrritter entscheiden sollten
-            </p>
-          </div>
-
-          {/* Grille des avantages */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-
-            {/* Avantage 1 */}
-            <div className="flex items-center space-x-4">
-              <FontAwesomeIcon
-                icon={faHome}
-                className="text-3xl"
-                style={{ color: '#f4b34f' }}
-              />
-              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
-                Kostenlose Beratung vor Ort
-              </span>
-            </div>
-
-            {/* Avantage 2 */}
-            <div className="flex items-center space-x-4">
-              <FontAwesomeIcon
-                icon={faCog}
-                className="text-3xl"
-                style={{ color: '#f4b34f' }}
-              />
-              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
-                Modernste technische Ausstattung
-              </span>
-            </div>
-
-            {/* Avantage 3 */}
-            <div className="flex items-center space-x-4">
-              <FontAwesomeIcon
-                icon={faUsers}
-                className="text-3xl"
-                style={{ color: '#f4b34f' }}
-              />
-              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
-                Langjährige Mitarbeiter
-              </span>
-            </div>
-
-            {/* Avantage 4 */}
-            <div className="flex items-center space-x-4">
-              <FontAwesomeIcon
-                icon={faShield}
-                className="text-3xl"
-                style={{ color: '#f4b34f' }}
-              />
-              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
-                Schutz vor weiteren Rohrschäden
-              </span>
-            </div>
-
-            {/* Avantage 5 */}
-            <div className="flex items-center space-x-4">
-              <FontAwesomeIcon
-                icon={faTruck}
-                className="text-3xl"
-                style={{ color: '#f4b34f' }}
-              />
-              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
-                Fuhrpark auf dem neuesten Stand
-              </span>
-            </div>
-
-            {/* Avantage 6 */}
-            <div className="flex items-center space-x-4">
-              <FontAwesomeIcon
-                icon={faBroom}
-                className="text-3xl"
-                style={{ color: '#f4b34f' }}
-              />
-              <span className="text-lg font-medium" style={{ color: '#1b5565' }}>
-                Sehr saubere Arbeitsweise
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Section Contact */}
       <section className="bg-white py-20">
@@ -1412,12 +1411,12 @@ export default function Home() {
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-6">
-                  <p className="text-md font-bold" style={{ color: '#d63231' }}>
-                    <FontAwesomeIcon icon={faPhone} className="mr-2" style={{ color: '#d63231' }} />
+                  <p className="text-md font-bold" style={{ color: '#f4b34f' }}>
+                    <FontAwesomeIcon icon={faPhone} className="mr-2" style={{ color: '#f4b34f' }} />
                     07473 2039 788
                   </p>
-                  <p className="text-md font-bold" style={{ color: '#d63231' }}>
-                    <FontAwesomeIcon icon={faEnvelope} className="mr-2" style={{ color: '#d63231' }} />
+                  <p className="text-md font-bold" style={{ color: '#f4b34f' }}>
+                    <FontAwesomeIcon icon={faEnvelope} className="mr-2" style={{ color: '#f4b34f' }} />
                     info@scheithauer-rohrreinigung.de
                   </p>
                 </div>
@@ -1474,7 +1473,7 @@ export default function Home() {
                 <button
                   type="submit"
                   className="w-full px-6 py-3 text-white font-bold text-md rounded-md shadow-lg hover:opacity-90 transition-opacity"
-                  style={{ backgroundColor: '#d63231' }}
+                  style={{ backgroundColor: '#f4b34f' }}
                 >
                   Nachricht senden
                 </button>
@@ -1483,7 +1482,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }
