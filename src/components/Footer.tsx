@@ -20,15 +20,15 @@ export default function Footer() {
           </div>
 
           {/* Séparateur */}
-          <div className="border-t border-yellow-300 my-4"></div>
+          <div className="border-t border-red-300 my-4"></div>
 
           {/* Liens légaux */}
-          <div className="flex justify-center space-x-8 text-sm" style={{ color: '#f4b34f' }}>
+          <div className="flex justify-center space-x-8 text-sm" style={{ color: '#d63231' }}>
             <a href="#" className="hover:text-yellow-400 transition-colors">
               Impressum
             </a>
             <span>|</span>
-            <a href="#" className="hover:text-yellow-400 transition-colors" style={{ color: '#f4b34f' }}>
+            <a href="#" className="hover:text-yellow-400 transition-colors" style={{ color: '#d63231' }}>
               Datenschutz
             </a>
           </div>

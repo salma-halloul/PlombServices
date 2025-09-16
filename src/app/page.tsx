@@ -207,12 +207,12 @@ export default function Home() {
                 <div className="space-y-1">
                   <p className="text-sm font-medium text-gray-600">Jetzt telefonisch erreichbar</p>
                   <a
-                    href="tel:015630814701"
+                    href="tel:+49 5707 9325566"
                     className="text-3xl font-bold underline flex items-center gap-3 hover:opacity-80 transition-opacity"
                     style={{ color: '#1b5565' }}
                   >
                     <FontAwesomeIcon icon={faPhone} className="lg:text-2xl text-lg" />
-                    0156 3081 4701
+                    +49 5707 9325566
                   </a>
                 </div>
               </div>
@@ -466,13 +466,14 @@ export default function Home() {
 
               {/* Message d'appel final */}
               <div className="pt-4">
-                <button
+                <a
+                  href="tel:+4957079325566"
                   className=" px-8 py-4 text-white font-bold lg:text-xl text-sm rounded-lg shadow-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-3"
                   style={{ backgroundColor: '#d63231' }}
                 >
                   <FontAwesomeIcon icon={faPhone} className="lg:text-lg text-sm" />
-                  Rufen Sie jetzt an 0156 3081 4701.
-                </button>
+                  Rufen Sie jetzt an +49 5707 9325566.
+                </a>
               </div>
             </div>
 
@@ -679,12 +680,12 @@ export default function Home() {
             {/* Bouton d'appel */}
             <div>
               <a
-                href="tel:03058919120"
+                href="tel:+49 5707 9325566"
                 className="inline-flex items-center gap-4 px-8 py-3 text-white font-bold text-lg rounded-sm shadow-lg hover:opacity-90 transition-opacity"
                 style={{ backgroundColor: '#f4b34f' }}
               >
                 <FontAwesomeIcon icon={faPhone} className="text-xl" />
-                Rufen Sie uns jetzt an: 030 5891 9120
+                Rufen Sie uns jetzt an: +49 5707 9325566
               </a>
             </div>
           </div>
@@ -800,12 +801,12 @@ export default function Home() {
               </div>
               <div>
                 <a
-                  href="tel:03058919120"
+                  href="tel:+49 5707 9325566"
                   className="inline-flex items-center gap-4 px-8 py-3 text-white font-bold text-lg rounded-sm shadow-lg hover:opacity-90 transition-opacity"
                   style={{ backgroundColor: '#f4b34f' }}
                 >
                   <FontAwesomeIcon icon={faPhone} className="text-xl" />
-                  Rufen Sie uns jetzt an: 030 5891 9120
+                  Rufen Sie uns jetzt an: +49 5707 9325566
                 </a>
               </div>
 
@@ -1411,13 +1412,13 @@ export default function Home() {
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-6">
-                  <p className="text-md font-bold" style={{ color: '#f4b34f' }}>
+                  <a href="tel:+4957079325566" className="text-md font-bold" style={{ color: '#f4b34f' }}>
                     <FontAwesomeIcon icon={faPhone} className="mr-2" style={{ color: '#f4b34f' }} />
-                    07473 2039 788
-                  </p>
+                    +49 5707 9325566
+                  </a>
                   <p className="text-md font-bold" style={{ color: '#f4b34f' }}>
                     <FontAwesomeIcon icon={faEnvelope} className="mr-2" style={{ color: '#f4b34f' }} />
-                    info@scheithauer-rohrreinigung.de
+                     info@RohrRitter-Minden.de
                   </p>
                 </div>
 

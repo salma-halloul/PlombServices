@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Plomb Services - Canalisations",
+  title: "Rohrritter Minden - Kanal- & Rohrreinigung",
   description: "Services de plomberie professionnels - Disponible 24h/24 et 7j/7",
 };
 
