@@ -3,19 +3,29 @@ export default function Footer() {
     <footer className="bg-gray-100 py-4">
       <div className="container mx-auto px-4">
         <div className="space-y-4">
-          
+
           {/* Nom de l'entreprise */}
           <h3 className="text-2xl font-bold" style={{ color: '#1b5565' }}>
             Rohrritter Minden
           </h3>
-          
+
           {/* Informations de contact */}
           <div className="space-y-2">
-            <p className="text-md">
-              <strong>Tel:</strong> 030 5891 9120
+            <p>
+              <a
+                href="tel:+49 5707 9325566"
+                className="text-md"
+              >
+                <strong>Tel:</strong> +49 5707 9325566
+              </a>
             </p>
-            <p className="text-md">
-              <strong>E-Mail:</strong> info@ccrohrreinigung.de
+            <p>
+              <a
+                href="mailto:info@RohrRitter-Minden.de"
+                className="text-md"
+              >
+                <strong>E-Mail:</strong> info@RohrRitter-Minden.de
+              </a>
             </p>
           </div>
 
@@ -32,7 +42,7 @@ export default function Footer() {
               Datenschutz
             </a>
           </div>
-          
+
         </div>
       </div>
     </footer>

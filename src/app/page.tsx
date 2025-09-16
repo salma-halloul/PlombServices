@@ -1410,15 +1410,19 @@ export default function Home() {
                 <p className="lg:text-lg text-md mb-2">
                   Marc Scheithauer – Ihr kompetenter Ansprechpartner
                 </p>
-                
+          
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-6">
                   <a href="tel:+4957079325566" className="text-md font-bold" style={{ color: '#f4b34f' }}>
                     <FontAwesomeIcon icon={faPhone} className="mr-2" style={{ color: '#f4b34f' }} />
                     +49 5707 9325566
                   </a>
                   <p className="text-md font-bold" style={{ color: '#f4b34f' }}>
-                    <FontAwesomeIcon icon={faEnvelope} className="mr-2" style={{ color: '#f4b34f' }} />
-                     info@RohrRitter-Minden.de
+                    <a
+                      href="mailto:info@RohrRitter-Minden.de"
+                    >
+                      <FontAwesomeIcon icon={faEnvelope} className="mr-2" style={{ color: '#f4b34f' }} />
+                      info@RohrRitter-Minden.de
+                    </a>
                   </p>
                 </div>
 

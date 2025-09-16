@@ -39,10 +39,14 @@ export default function Header() {
 
         <div className="navbar-contact">
           <div className="font-bold text-sm text-lg text-black">24/7 erreichbar - Jetzt anrufen</div>
-          <div className="font-bold text-sm lg:text-3xl teal underline decoration-teal flex items-center gap-2">
+          <a
+            href="tel:+49 5707 9325566"
+            className="font-bold text-sm lg:text-3xl teal underline decoration-teal flex items-center gap-2"
+          >
             <FontAwesomeIcon icon={faPhone} className="lg:text-xl text-sm text-teal" />
             +49 5707 9325566
-          </div>
+          </a>
+
         </div>
       </nav>
     </>
