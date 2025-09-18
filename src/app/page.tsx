@@ -16,9 +16,52 @@ export default function Home() {
   // État pour gérer l'ouverture/fermeture des questions FAQ
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
+  // États pour le modal de réservation
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    address: '',
+    email: '',
+    phone: '',
+    urgent: false,
+    message: ''
+  });
+
   // Fonction pour basculer l'ouverture des FAQ
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  // Fonctions pour gérer le modal de réservation
+  const openModal = () => setShowModal(true);
+  const closeModal = () => {
+    setShowModal(false);
+    setFormData({
+      name: '',
+      address: '',
+      email: '',
+      phone: '',
+      urgent: false,
+      message: ''
+    });
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Ici vous pouvez traiter les données du formulaire
+    console.log('Données du formulaire:', formData);
+    // Vous pouvez envoyer les données à votre API ou service d'email
+    alert('Ihre Anfrage wurde erfolgreich gesendet! Wir werden uns bald bei Ihnen melden.');
+    closeModal();
   };
 
   useEffect(() => {
@@ -150,6 +193,7 @@ export default function Home() {
               {/* Bouton d'action */}
               <div className="pt-8">
                 <button
+                  onClick={openModal}
                   className="px-8 py-4 text-white font-bold text-lg rounded-lg shadow-lg hover:opacity-90 transition-opacity flex items-center gap-3"
                   style={{ backgroundColor: '#f4b34f' }}
                 >
@@ -374,6 +418,7 @@ export default function Home() {
               {/* Bouton rendez-vous */}
               <div className="pt-6">
                 <button
+                  onClick={openModal}
                   className="px-8 py-4 text-white font-bold text-lg rounded-lg shadow-lg hover:opacity-90 transition-opacity flex items-center gap-3"
                   style={{ backgroundColor: '#d63231' }}
                 >
@@ -1487,6 +1532,132 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Modal de réservation */}
+      {showModal && (
+        <div 
+          className="fixed inset-0 flex items-center justify-center z-50 p-4"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+          onClick={closeModal}
+        >
+          <div 
+            className="bg-white rounded-lg max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold" style={{ color: '#1b5565' }}>
+                  Termin vereinbaren
+                </h2>
+                <button
+                  onClick={closeModal}
+                  className="text-gray-400 hover:text-gray-600 text-2xl"
+                >
+                  ×
+                </button>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-2">
+                <div>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Ihr Name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    placeholder="Adress"
+                    value={formData.address}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="E-Mail-Adresse"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Telefonnummer"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                  />
+                </div>
+
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    id="urgent"
+                    name="urgent"
+                    checked={formData.urgent}
+                    onChange={handleInputChange}
+                    className="h-4 w-4"
+                  />
+                  <label htmlFor="urgent" className="ml-2 block text-md text-bold text-red-700">
+                    Dringender Notfall
+                  </label>
+                </div>
+
+                <div>
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Wie können wir Ihnen helfen?"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows={3}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                  />
+                </div>
+
+                <div className="flex gap-3 pt-2">
+                  <button
+                    type="button"
+                    onClick={closeModal}
+                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors"
+                  >
+                    Abbrechen
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 px-4 py-2 text-white font-bold rounded-md hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: '#f4b34f' }}
+                  >
+                    Anfrage senden
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
