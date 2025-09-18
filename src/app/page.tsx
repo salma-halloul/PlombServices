@@ -113,7 +113,7 @@ export default function Home() {
               </h1>
 
               <p className="text-md lg:text-lg leading-relaxed">
-                Beauftragen Sie die Rohrmann Service – Ihren mehrfach geprüften Abwasserbetrieb.
+                Beauftragen Sie die Rohrritter Minden – Ihren mehrfach geprüften Abwasserbetrieb.
                 Als Ihr verlässlicher Partner stehen wir Ihnen für saubere und effiziente Rohr- und
                 Kanalreinigungen zur Verfügung. Zusätzlich liegt unsere Expertise in der Sanierung
                 und Instandsetzung von Kanal- und Abwassersystemen nach modernsten Verfahren sowie
@@ -164,7 +164,7 @@ export default function Home() {
               <div className="relative">
                 <Image
                   src="/image1.jpg"
-                  alt="Rohrmann Service Team"
+                  alt="Rohrritter Minden Team"
                   width={1500}
                   height={1200}
                   className="rounded-lg shadow-2xl object-cover"
@@ -223,7 +223,7 @@ export default function Home() {
               <div className="relative">
                 <Image
                   src="/image2.jpeg"
-                  alt="Rohrmann Service Ausrüstung"
+                  alt="Rohrritter Minden Ausrüstung"
                   width={1500}
                   height={1200}
                   className="rounded-lg shadow-2xl object-cover"
@@ -332,7 +332,7 @@ export default function Home() {
               </h3>
 
               <p className="lg:text-lg text-md leading-relaxed">
-                Rohrritter legt großen Wert auf hervorragende Qualität. Um diese zu erreichen,
+                Als Rohrritter legen wir großen Wert auf hervorragende Qualität. Um diese zu erreichen,
                 setzen wir auf drei entscheidende Faktoren: unser Fachwissen, unsere Erfahrung
                 und unsere modernste Technik. Unsere Mitarbeiter sind fachlich versiert und
                 routiniert im Umgang mit den neuesten Technologien, um Ihnen die bestmögliche
@@ -654,7 +654,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{
-            backgroundImage: "url('https://ccrohrreinigung.com/wp-content/uploads/2025/03/PIXGO_-8889.webp')",
+            backgroundImage: "url('/Equipe.png')",
           }}
         ></div>
 
@@ -674,7 +674,7 @@ export default function Home() {
 
             {/* Angebot spécial */}
             <p className="text-lg text-white mb-6 leading-relaxed">
-              <strong>Übrigens: HEUTE, am Donnerstag von 16 bis 22 Uhr</strong> ist in Berlin und Umgebung die Anfahrt kostenlos.
+              <strong>Übrigens: HEUTE, am Donnerstag von 16 bis 22 Uhr</strong> ist in Minden und Umgebung die Anfahrt kostenlos.
             </p>
 
             {/* Bouton d'appel */}
@@ -874,7 +874,7 @@ export default function Home() {
                   </p>
                   <div className="text-sm">
                     <p className="font-semibold text-gray-800">Maria Schmidt</p>
-                    <p className="text-gray-500">Berlin Mitte</p>
+                    <p className="text-gray-500">Minden Innenstadt</p>
                   </div>
                 </div>
 
@@ -895,7 +895,7 @@ export default function Home() {
                   </p>
                   <div className="text-sm">
                     <p className="font-semibold text-gray-800">Thomas Müller</p>
-                    <p className="text-gray-500">Berlin Charlottenburg</p>
+                    <p className="text-gray-500">Minden Nord</p>
                   </div>
                 </div>
 
@@ -916,7 +916,7 @@ export default function Home() {
                   </p>
                   <div className="text-sm">
                     <p className="font-semibold text-gray-800">Sarah Weber</p>
-                    <p className="text-gray-500">Berlin Kreuzberg</p>
+                    <p className="text-gray-500">Minden Süd</p>
                   </div>
                 </div>
 
@@ -937,7 +937,7 @@ export default function Home() {
                   </p>
                   <div className="text-sm">
                     <p className="font-semibold text-gray-800">Michael Fischer</p>
-                    <p className="text-gray-500">Berlin Prenzlauer Berg</p>
+                    <p className="text-gray-500">Minden Ost</p>
                   </div>
                 </div>
 
@@ -958,7 +958,7 @@ export default function Home() {
                   </p>
                   <div className="text-sm">
                     <p className="font-semibold text-gray-800">Anna Hoffmann</p>
-                    <p className="text-gray-500">Berlin Schöneberg</p>
+                    <p className="text-gray-500">Minden West</p>
                   </div>
                 </div>
 
@@ -979,7 +979,7 @@ export default function Home() {
                   </p>
                   <div className="text-sm">
                     <p className="font-semibold text-gray-800">Peter Wagner</p>
-                    <p className="text-gray-500">Berlin Tempelhof</p>
+                    <p className="text-gray-500">Minden Zentrum</p>
                   </div>
                 </div>
               </div>
@@ -1024,7 +1024,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
           style={{
-            backgroundImage: "url('/RohritterLogo.jpg')",
+            backgroundImage: "url('/Rohrritter.png')",
           }}
         ></div>
 
@@ -1378,7 +1378,7 @@ export default function Home() {
 
 
       {/* Section Contact */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-20 px-10">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
 
@@ -1386,10 +1386,10 @@ export default function Home() {
             <div className="flex justify-center lg:justify-start">
               <div className="relative">
                 <Image
-                  src="/contact.webp"
+                  src="/contact.png"
                   alt="Scheithauer Rohrreinigung Kontakt"
-                  width={600}
-                  height={700}
+                  width={470}
+                  height={300}
                   className="rounded-lg shadow-2xl object-cover"
                 />
                 {/* Effet de bordure */}

@@ -29,10 +29,10 @@ export default function Header() {
       <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
         <div className="navbar-logo">
           <Image
-            src="/Dein.png"
+            src="/Rohrritter_l.png"
             alt="Rohritter Logo"
-            width={150}
-            height={50}
+            width={200}
+            height={60}
             className="navbar-logo"
           />
         </div>
@@ -43,7 +43,7 @@ export default function Header() {
             href="tel:+49 5707 9325566"
             className="font-bold text-sm lg:text-3xl teal underline decoration-teal flex items-center gap-2"
           >
-            <FontAwesomeIcon icon={faPhone} className="lg:text-xl text-sm text-teal" />
+            <FontAwesomeIcon icon={faPhone} className="lg:text-lg text-sm text-teal" />
             +49 5707 9325566
           </a>
 
