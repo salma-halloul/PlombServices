@@ -304,7 +304,7 @@ export default function Home() {
             <div className="flex justify-center lg:justify-end">
               <div className="relative">
                 <Image
-                  src="/image1.jpg"
+                  src="/Image1.png"
                   alt="Rohrritter Minden Team"
                   width={1500}
                   height={1200}
@@ -363,7 +363,7 @@ export default function Home() {
             <div className="flex justify-center lg:justify-start order-2 lg:order-1">
               <div className="relative">
                 <Image
-                  src="/image2.jpeg"
+                  src="/image2.png"
                   alt="Rohrritter Minden Ausrüstung"
                   width={1500}
                   height={1200}
