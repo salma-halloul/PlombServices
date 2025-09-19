@@ -27,6 +27,14 @@ export default function Home() {
     message: ''
   });
 
+  // États pour le formulaire de contact
+  const [contactData, setContactData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
   // Fonction pour basculer l'ouverture des FAQ
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
@@ -55,13 +63,102 @@ export default function Home() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Ici vous pouvez traiter les données du formulaire
-    console.log('Données du formulaire:', formData);
-    // Vous pouvez envoyer les données à votre API ou service d'email
-    alert('Ihre Anfrage wurde erfolgreich gesendet! Wir werden uns bald bei Ihnen melden.');
-    closeModal();
+    
+    try {
+      // Préparer les données pour l'email
+      const emailData = {
+        to: 'info@RohrRitter-Minden.de', // Votre adresse email
+        subject: `Neue Terminanfrage von ${formData.name}`,
+        html: `
+          <h2>Neue Terminanfrage</h2>
+          <p><strong>Name:</strong> ${formData.name}</p>
+          <p><strong>Adresse:</strong> ${formData.address}</p>
+          <p><strong>E-Mail:</strong> ${formData.email}</p>
+          <p><strong>Telefon:</strong> ${formData.phone}</p>
+          <p><strong>Dringender Notfall:</strong> ${formData.urgent ? 'Ja' : 'Nein'}</p>
+          <p><strong>Nachricht:</strong></p>
+          <p>${formData.message.replace(/\n/g, '<br>')}</p>
+          <hr>
+        `
+      };
+
+      // Envoyer l'email via votre API endpoint
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailData),
+      });
+
+      if (response.ok) {
+        alert('Ihre Anfrage wurde erfolgreich gesendet! Wir werden uns bald bei Ihnen melden.');
+        closeModal();
+      } else {
+        throw new Error('Fehler beim Senden der E-Mail');
+      }
+    } catch (error) {
+      console.error('Fehler beim Senden der Anfrage:', error);
+      alert('Es gab einen Fehler beim Senden Ihrer Anfrage. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.');
+    }
+  };
+
+  // Fonctions pour gérer le formulaire de contact
+  const handleContactInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setContactData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      // Préparer les données pour l'email de contact
+      const emailData = {
+        to: 'info@RohrRitter-Minden.de', // Votre adresse email
+        subject: `Neue Kontaktanfrage von ${contactData.name}`,
+        html: `
+          <h2>Neue Kontaktanfrage</h2>
+          <p><strong>Name:</strong> ${contactData.name}</p>
+          <p><strong>E-Mail:</strong> ${contactData.email}</p>
+          <p><strong>Telefon:</strong> ${contactData.phone}</p>
+          <p><strong>Nachricht:</strong></p>
+          <p>${contactData.message.replace(/\n/g, '<br>')}</p>
+          <hr>
+          <p><em>Diese Nachricht wurde über das Kontaktformular der Website rohrritter-minden.de gesendet.</em></p>
+        `
+      };
+
+      // Envoyer l'email via votre API endpoint
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailData),
+      });
+
+      if (response.ok) {
+        alert('Ihre Nachricht wurde erfolgreich gesendet! Wir werden uns bald bei Ihnen melden.');
+        // Réinitialiser le formulaire
+        setContactData({
+          name: '',
+          email: '',
+          phone: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Fehler beim Senden der E-Mail');
+      }
+    } catch (error) {
+      console.error('Fehler beim Senden der Nachricht:', error);
+      alert('Es gab einen Fehler beim Senden Ihrer Nachricht. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.');
+    }
   };
 
   useEffect(() => {
@@ -1477,13 +1574,16 @@ export default function Home() {
               </div>
 
               {/* Formulaire de contact */}
-              <form className="space-y-2">
+              <form onSubmit={handleContactSubmit} className="space-y-2">
                 <div>
                   <input
                     type="text"
-                    id="name"
+                    id="contact-name"
                     name="name"
+                    value={contactData.name}
+                    onChange={handleContactInputChange}
                     placeholder="Name"
+                    required
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
                   />
                 </div>
@@ -1492,9 +1592,12 @@ export default function Home() {
                   <div>
                     <input
                       type="email"
-                      id="email"
+                      id="contact-email"
                       name="email"
+                      value={contactData.email}
+                      onChange={handleContactInputChange}
                       placeholder="E-Mail"
+                      required
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
                     />
                   </div>
@@ -1502,9 +1605,12 @@ export default function Home() {
                   <div>
                     <input
                       type="tel"
-                      id="phone"
+                      id="contact-phone"
                       name="phone"
+                      value={contactData.phone}
+                      onChange={handleContactInputChange}
                       placeholder="Rückrufnummer"
+                      required
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
                     />
                   </div>
@@ -1512,10 +1618,13 @@ export default function Home() {
                 
                 <div>
                   <textarea
-                    id="message"
+                    id="contact-message"
                     name="message"
+                    value={contactData.message}
+                    onChange={handleContactInputChange}
                     rows={5}
                     placeholder="Nachricht"
+                    required
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
                   ></textarea>
                 </div>
