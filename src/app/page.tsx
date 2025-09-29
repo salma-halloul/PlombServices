@@ -304,7 +304,7 @@ export default function Home() {
             <div className="flex justify-center lg:justify-end">
               <div className="relative">
                 <Image
-                  src="/Image1.png"
+                  src="/image1.png"
                   alt="Rohrritter Minden Team"
                   width={1500}
                   height={1200}
