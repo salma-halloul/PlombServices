@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-gray-100 py-4">
@@ -34,13 +36,13 @@ export default function Footer() {
 
           {/* Liens légaux */}
           <div className="flex justify-center space-x-8 text-sm" style={{ color: '#d63231' }}>
-            <a href="#" className="hover:text-yellow-400 transition-colors">
+            <Link href="/impressum" className="hover:text-yellow-400 transition-colors">
               Impressum
-            </a>
+            </Link>
             <span>|</span>
-            <a href="#" className="hover:text-yellow-400 transition-colors" style={{ color: '#d63231' }}>
+            <Link href="/datenschutz" className="hover:text-yellow-400 transition-colors" style={{ color: '#d63231' }}>
               Datenschutz
-            </a>
+            </Link>
           </div>
 
         </div>
