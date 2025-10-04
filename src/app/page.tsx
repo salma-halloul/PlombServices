@@ -837,7 +837,7 @@ export default function Home() {
 
       {/* Section Studien zeigen avec fond blanc */}
       <section className="bg-white py-20">
-        <div className="container mx-auto px-10">
+        <div className="container mx-auto px-4 lg:px-10">
 
           {/* Titre principal */}
           <div className=" mb-9">
@@ -977,19 +977,19 @@ export default function Home() {
             {/* Bouton gauche */}
             <button
               onClick={scrollLeft}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow"
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 lg:p-3 shadow-lg hover:shadow-xl transition-shadow"
               style={{ marginLeft: '-50px' }}
             >
-              <FontAwesomeIcon icon={faChevronLeft} className="text-lg" style={{ color: '#1b5565' }} />
+              <FontAwesomeIcon icon={faChevronLeft} className="text-md" style={{ color: '#1b5565' }} />
             </button>
 
             {/* Bouton droite */}
             <button
               onClick={scrollRight}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 lg:p-3 shadow-lg hover:shadow-xl transition-shadow"
               style={{ marginRight: '-50px' }}
             >
-              <FontAwesomeIcon icon={faChevronRight} className="text-lg" style={{ color: '#1b5565' }} />
+              <FontAwesomeIcon icon={faChevronRight} className="text-md" style={{ color: '#1b5565' }} />
             </button>
 
             {/* Carousel sans barre de défilement visible */}
@@ -997,10 +997,10 @@ export default function Home() {
               ref={reviewsCarouselRef}
               className="overflow-x-scroll overflow-y-hidden hide-scrollbar"
             >
-              <div className="flex space-x-6 pb-4" style={{ minWidth: 'max-content' }}>
+              <div className="flex space-x-6 pb-4">
 
                 {/* Avis 1 */}
-                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-72 sm:w-80 lg:w-96">
+                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-64 lg:w-96">
                   <div className="flex items-center mb-4">
                     <div className="flex text-yellow-400">
                       <FontAwesomeIcon icon={faStar} className="text-lg" />
@@ -1021,7 +1021,7 @@ export default function Home() {
                 </div>
 
                 {/* Avis 2 */}
-                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-72 sm:w-80 lg:w-96">
+                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-64 lg:w-96">
                   <div className="flex items-center mb-4">
                     <div className="flex text-yellow-400">
                       <FontAwesomeIcon icon={faStar} className="text-lg" />
@@ -1042,7 +1042,7 @@ export default function Home() {
                 </div>
 
                 {/* Avis 3 */}
-                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-72 sm:w-80 lg:w-96">
+                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-64 lg:w-96">
                   <div className="flex items-center mb-4">
                     <div className="flex text-yellow-400">
                       <FontAwesomeIcon icon={faStar} className="text-lg" />
@@ -1063,7 +1063,7 @@ export default function Home() {
                 </div>
 
                 {/* Avis 4 */}
-                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-72 sm:w-80 lg:w-96">
+                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-64 lg:w-96">
                   <div className="flex items-center mb-4">
                     <div className="flex text-yellow-400">
                       <FontAwesomeIcon icon={faStar} className="text-lg" />
@@ -1084,7 +1084,7 @@ export default function Home() {
                 </div>
 
                 {/* Avis 5 */}
-                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-72 sm:w-80 lg:w-96">
+                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-64 lg:w-96">
                   <div className="flex items-center mb-4">
                     <div className="flex text-yellow-400">
                       <FontAwesomeIcon icon={faStar} className="text-lg" />
@@ -1105,7 +1105,7 @@ export default function Home() {
                 </div>
 
                 {/* Avis 6 */}
-                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-72 sm:w-80 lg:w-96">
+                <div className="bg-white rounded-lg p-6 shadow-lg flex-shrink-0 w-64 lg:w-96">
                   <div className="flex items-center mb-4">
                     <div className="flex text-yellow-400">
                       <FontAwesomeIcon icon={faStar} className="text-lg" />
@@ -1131,7 +1131,7 @@ export default function Home() {
       </section>
 
       {/* Section Zahlungsarten */}
-      <section className="bg-white p-10">
+      <section className="bg-white lg:px-10 px-4 py-10">
         <div className="container mx-auto px-4">
           <div className="mb-12">
             <h2 className="text-2xl lg:text-3xl font-bold leading-tight mb-4" style={{ color: '#1b5565' }}>
@@ -1160,8 +1160,8 @@ export default function Home() {
         </div>
       </section>
 
-            {/* Section Weitere Vorteile avec arrière-plan logo */}
-      <section className="relative py-10 p-10" style={{ backgroundColor: '#f8f9fa' }}>
+      {/* Section Weitere Vorteile avec arrière-plan logo */}
+      <section className="relative py-10 lg:p-10" style={{ backgroundColor: '#f8f9fa' }}>
         {/* Image de fond avec le logo */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
@@ -1260,8 +1260,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section FAQ */}
-      <section className="bg-gray-100 p-10 py-20">
+     {/* Section FAQ */}
+      <section className="bg-gray-100 lg:px-10 py-20">
         <div className="container mx-auto px-4">
 
           {/* Titre principal */}
@@ -1297,7 +1297,7 @@ export default function Home() {
               {openFAQ === 1 && (
                 <div className="px-3 pb-6 animate-fadeIn">
                   <div className="border-t pt-4">
-                    <p className="text-lg font-bold text-black mb-4">
+                    <p className="text-md lg:text-lg font-bold text-black mb-4">
                       In den meisten Fällen 1-3 Stunden.
                     </p>
                     <p className="text-gray-700 mb-4 leading-relaxed">
@@ -1318,7 +1318,7 @@ export default function Home() {
                 className="w-full p-3 text-left flex justify-between items-center faq-button rounded-lg"
               >
                 <div>
-                  <h3 className="text-lg lg:text-lg font-bold text-black">
+                  <h3 className="text-md lg:text-lg font-bold text-black">
                     Wie schnell sind Sie bei mir?
                   </h3>
                 </div>
@@ -1331,7 +1331,7 @@ export default function Home() {
               {openFAQ === 2 && (
                 <div className="px-3 pb-6 animate-fadeIn">
                   <div className="border-t pt-4">
-                    <p className="text-lg font-bold text-black mb-4">
+                    <p className="text-md lg:text-lg font-bold text-black mb-4">
                       Meistens in 45-90 Minuten
                     </p>
                     <p className="text-gray-700 leading-relaxed">
@@ -1349,7 +1349,7 @@ export default function Home() {
                 className="w-full p-3 text-left flex justify-between items-center faq-button rounded-lg"
               >
                 <div>
-                  <h3 className="text-lg lg:text-lg font-bold text-black">
+                  <h3 className="text-md lg:text-lg font-bold text-black">
                     Was kostet die Rohrreinigung?
                   </h3>
                 </div>
@@ -1362,7 +1362,7 @@ export default function Home() {
               {openFAQ === 3 && (
                 <div className="px-3 pb-6 animate-fadeIn">
                   <div className="border-t pt-4">
-                    <p className="text-lg font-bold text-black mb-4">
+                    <p className="text-md lg:text-lg font-bold text-black mb-4">
                       85% der Rohrreinigungen kosten weniger als 250€
                     </p>
                     <p className="text-gray-700 mb-4 leading-relaxed">
@@ -1383,7 +1383,7 @@ export default function Home() {
                 className="w-full p-3 text-left flex justify-between items-center faq-button rounded-lg"
               >
                 <div>
-                  <h3 className="text-lg lg:text-lg font-bold text-black">
+                  <h3 className="text-md lg:text-lg font-bold text-black">
                     Wie entsteht eine Rohrverstopfung?
                   </h3>
                 </div>
@@ -1396,7 +1396,7 @@ export default function Home() {
               {openFAQ === 4 && (
                 <div className="px-3 pb-6 animate-fadeIn">
                   <div className="border-t pt-4">
-                    <p className="text-lg font-bold text-black mb-4">
+                    <p className="text-md lg:text-lg font-bold text-black mb-4">
                       Häufigsten Gründe: Kalk, Fett und Seifenreste
                     </p>
                     <p className="text-gray-700 leading-relaxed">
@@ -1414,7 +1414,7 @@ export default function Home() {
                 className="w-full p-3 text-left flex justify-between items-center faq-button rounded-lg"
               >
                 <div>
-                  <h3 className="text-lg lg:text-lg font-bold text-black">
+                  <h3 className="text-md lg:text-lg font-bold text-black">
                     Welche Methoden zur Rohrreinigung kommen zum Einsatz?
                   </h3>
                 </div>
@@ -1427,7 +1427,7 @@ export default function Home() {
               {openFAQ === 5 && (
                 <div className="px-3 pb-6 animate-fadeIn">
                   <div className="border-t pt-4">
-                    <p className="text-lg font-bold text-black mb-4">
+                    <p className="text-md lg:text-lg font-bold text-black mb-4">
                       Viele unterschiedliche technische Methoden & kostenlose Problemanalyse
                     </p>
                     <p className="text-gray-700 mb-4 leading-relaxed">
@@ -1451,7 +1451,7 @@ export default function Home() {
                 className="w-full p-3 text-left flex justify-between items-center faq-button rounded-lg"
               >
                 <div>
-                  <h3 className="text-lg lg:text-lg font-bold text-black">
+                  <h3 className="text-md lg:text-lg font-bold text-black">
                     Können Abwasserrohre repariert werden ohne aufzugraben?
                   </h3>
                 </div>
@@ -1464,7 +1464,7 @@ export default function Home() {
               {openFAQ === 6 && (
                 <div className="px-3 pb-6 animate-fadeIn">
                   <div className="border-t pt-4">
-                    <p className="text-lg font-bold text-black mb-4">
+                    <p className="text-md lg:text-lg font-bold text-black mb-4">
                       Ja, dank hochmodernen technischen Methoden
                     </p>
                     <p className="text-gray-700 mb-4 leading-relaxed">
@@ -1485,7 +1485,7 @@ export default function Home() {
                 className="w-full p-3 text-left flex justify-between items-center faq-button rounded-lg"
               >
                 <div>
-                  <h3 className="text-lg lg:text-lg font-bold text-black">
+                  <h3 className="text-md lg:text-lg font-bold text-black">
                     Sind Hausmittel oder Chemikalien sinnvoll?
                   </h3>
                 </div>
@@ -1498,7 +1498,7 @@ export default function Home() {
               {openFAQ === 7 && (
                 <div className="px-3 pb-6 animate-fadeIn">
                   <div className="border-t pt-4">
-                    <p className="text-lg font-bold text-black mb-4">
+                    <p className="text-md lg:text-lg  font-bold text-black mb-4">
                       Meistens helfen diese Methoden nur vorübergehend. Langfristige Lösungen bieten professionelle Reinigungen.
                     </p>
                     <p className="text-gray-700 mb-4 leading-relaxed">
@@ -1520,7 +1520,7 @@ export default function Home() {
 
 
       {/* Section Contact */}
-      <section className="bg-white py-20 px-10">
+      <section className="bg-white py-20 lg:px-10">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
 
