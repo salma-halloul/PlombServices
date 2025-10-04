@@ -48,7 +48,7 @@ body {
 /* Styles pour la navbar fixe */
 .navbar {
   background-color: white;
-  padding: 8px 15px;
+  padding: 15px 15px;
   position: fixed;
   top: 36px; /* Hauteur de la barre d'info */
   left: 0;
@@ -58,6 +58,12 @@ body {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 1000px) {
+  .navbar {
+    padding: 8px 20px;
+  }
 }
 
 .navbar-scrolled {

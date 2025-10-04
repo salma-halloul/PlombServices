@@ -31,14 +31,14 @@ export default function Header() {
           <Image
             src="/Rohrritter_l.png"
             alt="Rohritter Logo"
-            width={120}
-            height={60}
+            width={150}
+            height={70}
             className="navbar-logo md:w-[200px] lg:w-[200px]"
           />
         </div>
 
         <div className="navbar-contact">
-          <div className="font-bold text-sm text-black">24/7 erreichbar - Jetzt anrufen</div>
+          <div className="font-bold lg:text-sm md:text-sm text-xs text-black">24/7 erreichbar - Jetzt anrufen</div>
           <a
             href="tel:+49 5707 9325566"
             className="font-bold text-sm lg:text-3xl teal underline decoration-teal flex items-center gap-2"
