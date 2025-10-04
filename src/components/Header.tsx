@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,7 +28,7 @@ export default function Header() {
 
       {/* Navbar fixe */}
       <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
-        <div className="navbar-logo">
+        <Link href="/" className="navbar-logo">
           <Image
             src="/Rohrritter_l.png"
             alt="Rohritter Logo"
@@ -35,7 +36,7 @@ export default function Header() {
             height={70}
             className="navbar-logo md:w-[200px] lg:w-[200px]"
           />
-        </div>
+        </Link>
 
         <div className="navbar-contact">
           <div className="font-bold lg:text-sm md:text-sm text-xs text-black">24/7 erreichbar - Jetzt anrufen</div>
