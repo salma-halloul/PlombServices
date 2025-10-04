@@ -17,8 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Rohrritter Minden - Kanal- & Rohrreinigung",
-  description: "Services de plomberie professionnels - Disponible 24h/24 et 7j/7",
-  viewport: "width=device-width, initial-scale=1.0",
+  description: "Professionelle Rohrreinigungsdienste – 24 Stunden am Tag, 7 Tage die Woche verfügbar",
 };
 
 export default function RootLayout({
@@ -27,7 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="de">
+      <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
