@@ -32,6 +32,14 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         />
+        <title>Rohrritter Minden - Kanal- & Rohrreinigung</title>
+        <meta name="description" content="Professionelle Rohrreinigungsdienste – 24 Stunden am Tag, 7 Tage die Woche verfügbar" />
+        <meta name="keywords" content="Rohrreinigung, Kanalreinigung, Notdienst, Minden, Sanitär, 24h Service, Küchenabfluss reinigen, Toilette verstopft, Notdienst, Kanal-TV-Untersuchung" />
+        <meta property="og:title" content="Rohrritter Minden - Kanal- & Rohrreinigung" />
+        <meta property="og:description" content="Professionelle Rohrreinigungsdienste – 24 Stunden am Tag, 7 Tage die Woche verfügbar" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="de_DE" />
+        <meta name="twitter:card" content="summary_large_image" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
