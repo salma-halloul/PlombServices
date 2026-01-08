@@ -2,6 +2,10 @@
 
 import React from "react";
 
+export const metadata = {
+  robots: "noindex",
+};
+
 export default function Impressum() {
   return (
     <div className="min-h-screen bg-white py-12 px-4">
