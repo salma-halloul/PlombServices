@@ -32,6 +32,7 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         />
+        <link rel="canonical" href="rohrritter-minden.de/" />
         <title>Rohrritter Minden - Kanal- & Rohrreinigung</title>
         <meta name="description" content="Professionelle Rohrreinigungsdienste – 24 Stunden am Tag, 7 Tage die Woche verfügbar" />
         <meta name="keywords" content="Rohrreinigung, Kanalreinigung, Notdienst, Minden, Sanitär, 24h Service, Küchenabfluss reinigen, Toilette verstopft, Notdienst, Kanal-TV-Untersuchung" />
